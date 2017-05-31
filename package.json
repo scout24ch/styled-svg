@@ -1,0 +1,24 @@
+{
+  "name": "styled-svg",
+  "version": "1.0.0",
+  "description": "Generates styled-components out of .svg images",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaggli/styled-svg.git"
+  },
+  "keywords": [
+    "styled-components",
+    "svg",
+    "generator"
+  ],
+  "author": "Matthias Jäggli <matthias.jaeggli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaggli/styled-svg/issues"
+  },
+  "homepage": "https://github.com/jaggli/styled-svg#readme"
+}
