@@ -31,7 +31,7 @@ module.exports = svg => svg
     const indentLevel = line.match(leadingSpaces)[1].length
     const indentParentLine = indentLine(indentLevel + 2)
     const indentChildLine = indentLine(indentLevel + 2 + 2)
-    const attributes = attrsStr.match(attributesAndValues) || []
+    const attributes = (attrsStr.match(attributesAndValues) || [])
       .map(str => {
         const [key, val] = str
           .trim()
