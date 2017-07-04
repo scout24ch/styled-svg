@@ -1,10 +1,13 @@
 {
   "name": "styled-svg",
-  "version": "1.0.0",
-  "description": "Generates styled-components out of .svg images",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Generates styled-components and tests from *.svg files",
+  "main": "src/index.js",
+  "bin": {
+    "styled-svg": "./bin/styled-svg.js"
+  },
   "scripts": {
-    "test": "yarn test"
+    "test": "jest test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/jaggli/styled-svg/issues"
   },
-  "homepage": "https://github.com/jaggli/styled-svg#readme"
+  "homepage": "https://github.com/jaggli/styled-svg#readme",
+  "dependencies": {
+    "glob": "^7.1.2",
+    "svgo": "^0.7.2"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "standard": "^10.0.2"
+  }
 }
