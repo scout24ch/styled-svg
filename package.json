@@ -1,6 +1,6 @@
 {
   "name": "styled-svg",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Generates styled-components and tests from *.svg files",
   "main": "src/index.js",
   "bin": {
@@ -32,8 +32,8 @@
     "jest": "^20.0.4",
     "standard": "^10.0.2"
   },
-  "engines" : { 
-    "node" : ">=8.0.0",
-    "npm" : ">=5.0.0"
-    }
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  }
 }
