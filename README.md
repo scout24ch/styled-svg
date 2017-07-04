@@ -18,7 +18,7 @@ Then run `yarn svg` or `npm run svg` at any time to generate Components
 ### JS
 Install the dependency
 ```bash
-yarn add --dev @s24/styled-svg
+yarn add --dev styled-svg
 ```
 JS example
 ```js
@@ -34,7 +34,7 @@ convert(files)
 ### Command line
 Install the package
 ```bash
-yarn add --global @s24/styled-svg
+yarn add --global styled-svg
 ```
 Run it in any directory
 ```bash
