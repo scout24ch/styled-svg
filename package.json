@@ -31,5 +31,9 @@
   "devDependencies": {
     "jest": "^20.0.4",
     "standard": "^10.0.2"
-  }
+  },
+  "engines" : { 
+    "node" : ">=8.0.0",
+    "npm" : ">=5.0.0"
+    }
 }

@@ -2,7 +2,7 @@
 Generates styled-components out of SVG files
 
 ## Usage
-### npm scripts
+### npm scripts usage
 Create a npm script in your package.json
 ```js
 {
@@ -13,16 +13,17 @@ Create a npm script in your package.json
   //...
 }
 ```
-Then run `yarn svg` or `npm run svg` at any time to generate Components
+Then run `npm run svg` at any time to generate Components
 
-### JS
+### JS usage
 Install the dependency
 ```bash
-yarn add --dev styled-svg
+npm i --save-dev styled-svg
 ```
+
 JS example
 ```js
-const convert = require('@s24/styled-svg')
+const convert = require('styled-svg')
 const files = [
   'path/to/file/a.svg',
   'path/to/file/b.svg',
@@ -31,11 +32,12 @@ const files = [
 convert(files)
 ```
 
-### Command line
-Install the package
+### Command line usage
+Install the package with yarn
 ```bash
-yarn add --global styled-svg
+npm i -g styled-svg
 ```
+
 Run it in any directory
 ```bash
 styled-svg **/*.svg
