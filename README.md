@@ -33,7 +33,7 @@ convert(files)
 ```
 
 ### Command line usage
-Install the package with yarn
+Install the package globally
 ```bash
 npm i -g styled-svg
 ```
