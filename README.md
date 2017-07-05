@@ -42,3 +42,6 @@ Run it in any directory
 ```bash
 styled-svg **/*.svg
 ```
+
+## Licence 
+[MIT](LICENSE.md)
