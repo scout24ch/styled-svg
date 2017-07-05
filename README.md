@@ -43,5 +43,12 @@ Run it in any directory
 styled-svg **/*.svg
 ```
 
+## Changelog
+[CHANGELOG](CHANGELOG.md)
+
+
+## Known issues
+- Improve test coverage
+
 ## Licence 
 [MIT](LICENSE.md)
