@@ -47,8 +47,10 @@ styled-svg **/*.svg
 [CHANGELOG](CHANGELOG.md)
 
 
-## Known issues
+## Known issues / unimplemented features
 - Improve test coverage
+- Make it usable in JS with specifying svg strings directly, not only file paths
+- Custom template support
 
 ## Licence 
 [MIT](LICENSE.md)
