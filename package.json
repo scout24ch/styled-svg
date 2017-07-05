@@ -7,7 +7,8 @@
     "styled-svg": "./bin/styled-svg.js"
   },
   "scripts": {
-    "test": "jest test"
+    "develop": "nodemon -x \"npm run test\"",
+    "test": "mocha **/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -25,15 +26,20 @@
   },
   "homepage": "https://github.com/jaggli/styled-svg#readme",
   "dependencies": {
-    "glob": "^7.1.2",
-    "svgo": "^0.7.2"
+    "glob": "7.1.2",
+    "svgo": "0.7.2"
   },
   "devDependencies": {
-    "jest": "^20.0.4",
+    "mocha": "^3.4.2",
     "standard": "^10.0.2"
   },
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=5.0.0"
+  },
+  "standard": {
+    "env": {
+      "mocha": true
+    }
   }
 }
