@@ -1,5 +1,5 @@
 # styled-svg
-Generates styled-components out of SVG files
+Generate [styled-components 💅](https://www.styled-components.com/) from SVG files
 
 ## Usage
 ### npm scripts usage
