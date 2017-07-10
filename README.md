@@ -1,9 +1,70 @@
 # styled-svg
 Generate [styled-components 💅](https://www.styled-components.com/) from SVG files
 
+## What is this?
+This utility generates React commponents, using the `styled.svg` function. Just drop the .svg somewhere in the procject, run the tool and start using your svg files as [inline svg](http://caniuse.com/#feat=svg-html5) with all React and `styled-components` beauty. As a bonus, all svg files will be optimized first, using the awesome [svgo](https://github.com/svg/svgo) library.
+
+### How does it look like.
+Expample input file `arrow-down.svg`
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <path fill="#0077D0" fill-rule="evenodd" d="M9.00010711,13.0001535 L3.26010711,6.67315352 C2.88910711,6.26415352 2.91810711,5.63115352 3.32710711,5.26015352 C3.73610711,4.88815352 4.36910711,4.91915352 4.74010711,5.32715352 L9.00010711,10.0131535 L13.2601071,5.32715352 C13.6311071,4.92015352 14.2641071,4.88915352 14.6731071,5.26015352 C15.0821071,5.63115352 15.1111071,6.26415352 14.7401071,6.67315352 L9.00010711,13.0001535 Z"/>
+</svg>
+```
+
+Generated output files
+```js
+import styled, { css } from 'styled-components'
+import React from 'react'
+
+const width = '18'
+const height = '18'
+const viewBox = '0 0 18 18'
+
+const getDimensions = () => ({
+  height,
+  width
+})
+
+const getDimensionsCss = () => css`
+  width: ${width}px;
+  height: ${height}px;
+`
+
+const Image = styled.svg`
+  ${({noStyles}) => !noStyles ? getDimensionsCss() : null}
+`
+
+const defaultProps = {
+  children: [
+    <path
+      fill='#0077D0'
+      fillRule='evenodd'
+      d='M9 13L3.26 6.673a1 1 0 0 1 1.48-1.346L9 10.013l4.26-4.686a1 1 0 0 1 1.48 1.346L9 13z'
+    />
+  ],
+  viewBox
+}
+
+export default Object.assign(Image, {
+  getDimensions,
+  getDimensionsCss,
+  defaultProps,
+  displayName: 'ArrowDown'
+})
+```
+
+
 ## Usage
-### npm scripts usage
-Create a npm script in your package.json
+### npm scripts usage (recommended)
+
+Install the dependency
+```bash
+npm i --save-dev styled-svg
+```
+
+Create a npm script entry in your package.json
 ```js
 {
   //...
