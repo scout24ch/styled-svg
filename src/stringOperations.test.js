@@ -22,7 +22,7 @@ describe('stringOperations', () => {
       assert.equal(camelCase('    this-is a:wildCombination    '), 'thisIsAWildCombination')
     })
   })
-  
+
   describe('pascalCase()', () => {
     it('should return an empty string from empty string', () => {
       assert.equal(pascalCase(''), '')
