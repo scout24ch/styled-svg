@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
 import React from 'react' // eslint-disable-line no-unused-vars
+import styled, { css } from 'styled-components'
 
 const width = '{{WIDTH}}'
 const height = '{{HEIGHT}}'
