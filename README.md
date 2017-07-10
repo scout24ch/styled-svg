@@ -115,3 +115,7 @@ styled-svg **/*.svg
 
 ## Licence 
 [MIT](LICENSE.md)
+
+## Credits
+- Thanks [svg2react](https://www.npmjs.com/package/svg2react) for some inspiration how to handle
+attributes
