@@ -8,6 +8,8 @@
   },
   "scripts": {
     "develop": "nodemon -x \"npm run test\"",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "test": "mocha **/*.test.js"
   },
   "repository": {
@@ -39,7 +41,7 @@
   },
   "standard": {
     "env": {
-      "mocha": true
+      "jasmine": true
     }
   }
 }

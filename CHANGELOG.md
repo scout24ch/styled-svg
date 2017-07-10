@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.0.8] - 2017-07-10
+### Added
+- Travis CI
+- Documentation and credits in [README.md](./README.md)
+
+## [1.0.4 - 1.0.7] - 2017-07-06
+### Fixed
+- Typos and version bumps
+
 ## [1.0.4] - 2017-07-06
 ### Added
 - Basic unit tests
