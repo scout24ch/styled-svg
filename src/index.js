@@ -47,6 +47,7 @@ const convertFile = (filename, templates) => {
           .replace('{{HEIGHT}}', height)
           .replace('{{VIEWBOX}}', viewBox.join(' '))
           .replace('{{NAME}}', displayName)
+          .replace(' // eslint-disable-line no-unused-vars', '')
       )
       fs.writeFileSync(path.join(fileDir, testFilename),
         templates.test
