@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.1.0] - 2017-07-28
+### Added
+- Snapshot testing with [enzyme](https://github.com/airbnb/enzyme)
+
 ## [1.0.8] - 2017-07-10
 ### Added
 - Travis CI
