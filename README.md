@@ -3,10 +3,10 @@ Generate [styled-components 💅](https://www.styled-components.com/) from SVG f
   
 [![Build Status](https://travis-ci.org/Scout24-CH/styled-svg.svg?branch=master)](https://travis-ci.org/Scout24-CH/styled-svg)
 
-## What is this?
+## What's this?
 This utility generates React commponents, using the `styled.svg` function. Just drop the .svg somewhere in the project, run the tool and start using your svg files as [inline svg](http://caniuse.com/#feat=svg-html5) with all React and `styled-components` beauty. As a bonus, all svg files will be pre-optimized, using the awesome [svgo](https://github.com/svg/svgo) library.
 
-### How does it look like.
+### How it looks like
 Expample input file `arrow-down.svg`
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -15,7 +15,7 @@ Expample input file `arrow-down.svg`
 </svg>
 ```
 
-Generated output file
+Generated output file **ArrowDown.js**
 ```jsx
 import React from 'react'
 import styled, { css } from 'styled-components'
@@ -57,6 +57,18 @@ export default Object.assign(Image, {
 })
 ```
 
+### Usage of the generated component
+```js
+import React from 'react'
+import ArrowDown from './ArrowDown'
+
+const CompnentWithImage = props => (
+  <div>
+    {props.children}
+    <ArrowDown />
+  </div>
+)
+```
 
 ## Usage
 ### npm scripts usage (recommended)
