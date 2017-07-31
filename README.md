@@ -62,12 +62,14 @@ export default Object.assign(Image, {
 import React from 'react'
 import ArrowDown from './ArrowDown'
 
-const CompnentWithImage = props => (
+const ComponentWithImage = props => (
   <div>
     {props.children}
     <ArrowDown />
   </div>
 )
+
+export default ComponentWithImage
 ```
 
 ## Usage
