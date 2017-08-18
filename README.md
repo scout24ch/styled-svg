@@ -72,6 +72,18 @@ const ComponentWithImage = props => (
 export default ComponentWithImage
 ```
 
+### Overriding styles
+As the components are just regular styled-components, overriding styles is easy
+```js
+import React from 'react'
+import ArrowDown from './ArrowDown'
+
+const CustomizedArrowDown = ArrowDown.extend`
+  width: 100%;
+  border-radius: 3px;
+`
+```
+
 ## Usage
 ### npm scripts usage (recommended)
 
