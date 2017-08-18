@@ -72,7 +72,7 @@ const ComponentWithImage = props => (
 export default ComponentWithImage
 ```
 
-### Overriding styles and change colors
+### Overriding styles and changing colors
 As the components are just regular styled-components, overriding styles is easy
 ```js
 import React from 'react'
