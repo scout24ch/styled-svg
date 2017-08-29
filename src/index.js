@@ -22,12 +22,13 @@ const convertFile = (filename, templates) => {
   const componentFilename = displayName + '.js'
   const testFilename = displayName + '.test.js'
   const importPath = './' + componentFilename
+  const outputFile = path.join(fileDir, componentFilename)
 
   let width = 0
   let height = 0
   let viewBox = []
 
-  return optimize(origContent, filename)
+  return optimize(origContent, outputFile)
     .then(content => content.trim())
     .then(content => {
       let tempViewBox = origContent.match(viewBoxAttribute)
@@ -40,7 +41,7 @@ const convertFile = (filename, templates) => {
     })
     .then(indent)
     .then(content => {
-      fs.writeFileSync(path.join(fileDir, componentFilename),
+      fs.writeFileSync(outputFile,
         templates.component
           .replace('\'{{SVG}}\'', content)
           .replace('{{WIDTH}}', width)
