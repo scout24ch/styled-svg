@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.1.1] - 2017-09-29
+### Added
+- Generate unique id attributes, to avoid conflicts in DOM (fixes IE11 google analytics bug, when clicking on svg elements)
+
 ## [1.1.0] - 2017-07-28
 ### Added
 - Snapshot testing with [enzyme](https://github.com/airbnb/enzyme)
