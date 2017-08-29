@@ -27,7 +27,7 @@ const convertFile = (filename, templates) => {
   let height = 0
   let viewBox = []
 
-  return optimize(origContent)
+  return optimize(origContent, filename)
     .then(content => content.trim())
     .then(content => {
       let tempViewBox = origContent.match(viewBoxAttribute)
