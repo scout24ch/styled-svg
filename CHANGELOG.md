@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.2.0] - xxx
+### Changed
+- Moved from mocha to jest for testing
+- 
+
 ## [1.1.4] - 2017-09-29
 ### Added
 - Use full path for id hashes
