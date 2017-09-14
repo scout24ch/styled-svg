@@ -24,7 +24,7 @@ const defaultProps = {
     <defs
     >
       <circle
-        id='s-534aeb9e61-a'
+        id='s-baa78cd811-a'
         cx='7'
         cy='7'
         r='7'
@@ -36,7 +36,7 @@ const defaultProps = {
     >
       <use
         fill='#FFF'
-        xlinkHref='#s-534aeb9e61-a'
+        xlinkHref='#s-baa78cd811-a'
       />
       <circle
         cx='7'

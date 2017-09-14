@@ -10,7 +10,7 @@
     "develop": "nodemon -x \"npm run test\"",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "node jest/test.js"
+    "test": "bin/styled-svg.js && node jest/test.js"
   },
   "repository": {
     "type": "git",
