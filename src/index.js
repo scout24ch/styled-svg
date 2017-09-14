@@ -12,7 +12,7 @@ const readTemplate = name => fs.readFileSync(path.join(__dirname, 'templates', n
 
 const templates = {
   component: readTemplate('component'),
-  test: readTemplate('test')
+  test: readTemplate('enzyme')
 }
 
 const convertFile = (filename, templates) => {

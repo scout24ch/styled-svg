@@ -10,7 +10,7 @@
     "develop": "nodemon -x \"npm run test\"",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "mocha **/*.test.js"
+    "test": "node scripts/test.js"
   },
   "repository": {
     "type": "git",
@@ -28,19 +28,64 @@
   },
   "homepage": "https://github.com/jaggli/styled-svg#readme",
   "dependencies": {
-    "enzyme": "^2.9.1",
-    "enzyme-to-json": "^1.5.1",
     "glob": "7.1.2",
-    "styled-components": "^2.1.1",
     "svgo": "0.7.2"
   },
   "devDependencies": {
-    "mocha": "^3.4.2",
-    "standard": "^10.0.2"
+    "babel-preset-react-app": "^3.0.2",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "jest": "^21.1.0",
+    "jest-cli": "^21.1.0",
+    "jest-enzyme": "^3.8.2",
+    "jest-styled-components": "^4.6.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "standard": "^10.0.3",
+    "styled-components": "^2.1.1"
   },
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=5.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/config/setupTests.js",
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   },
   "standard": {
     "env": {
