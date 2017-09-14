@@ -10,7 +10,7 @@
     "develop": "nodemon -x \"npm run test\"",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "node scripts/test.js"
+    "test": "node jest/test.js"
   },
   "repository": {
     "type": "git",
@@ -54,9 +54,9 @@
       "src/**/*.{js,jsx}"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/jest/polyfills.js"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/config/setupTests.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/jest/setupTests.js",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
       "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
@@ -65,7 +65,7 @@
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
