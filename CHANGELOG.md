@@ -7,16 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
-## [1.2.0] - xxx
+## [1.2.0] - 2017-09-15
+### Fixed
+- Consecutive child tags broke the output
 ### Changed
 - Moved from mocha to jest for testing
-- 
 
-## [1.1.4] - 2017-09-29
+## [1.1.4] - 2017-08-29
 ### Added
 - Use full path for id hashes
 
-## [1.1.3] - 2017-09-29
+## [1.1.3] - 2017-08-29
 ### Added
 - Generate unique id attributes, to avoid conflicts in DOM (fixes IE11 google analytics bug, when clicking on svg elements)
 

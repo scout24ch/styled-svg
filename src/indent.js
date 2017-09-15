@@ -1,10 +1,10 @@
 const { camelCase } = require('./stringOperations')
 
 const tagWithAttributes = /(<\/?)([^ ]*) ?([^/]*)(\/?>)/
-const consecutiveRootTags = />\n\s{4}</g
 const doubleQuotes = /"/g
 const leadingSpaces = /^( *)/
 const attributesAndValues = /[^=]*="[^"]*"/g
+const closingRootTag = /\s{4}<\//
 
 const indentLine = indentLevel => str => ' '.repeat(indentLevel) + str
 const getStyleAttribute = str => {
@@ -55,12 +55,16 @@ module.exports = svg => svg
       : ([
         indentParentLine(`<${tag}`),
         attributes,
-        !closingTag && tag === 'svg' ? indentChildLine('{...props}') : null,
         indentParentLine(autoclosingTag ? '/>' : '>')
       ]))
       .filter(line => line)
       .join('\n'))
   }, [])
+  .map((line, i, buffer) => {
+    if (buffer[i + 1] && line.match(closingRootTag)) {
+      return line + ','
+    }
+    return line
+  })
   .join('\n')
   .trim()
-  .replace(consecutiveRootTags, '>,\n    <')

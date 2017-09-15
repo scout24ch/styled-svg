@@ -28,7 +28,7 @@ const defaultProps = {
         cx='7'
         cy='7'
         r='7'
-      />,
+      />
     </defs>,
     <g
       fill='none'
@@ -55,7 +55,7 @@ const defaultProps = {
         cy='7'
         r='3'
         fill='#FF7500'
-      />,
+      />
     </g>
   ],
   viewBox

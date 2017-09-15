@@ -11,6 +11,5 @@ glob(pattern, (err, files) => {
     console.log(err.stack)
     process.exit(1)
   }
-  console.log(files)
   convert(files)
 })

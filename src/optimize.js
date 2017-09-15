@@ -29,7 +29,7 @@ module.exports = (content, filename) => {
       { removeScriptElement: true },
       { removeDimensions: true },
       { cleanupIDs: {
-        remove: false,
+        remove: true,
         minify: true,
         prefix: `s-${filenameHash}-`
       } },
