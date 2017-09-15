@@ -4,7 +4,7 @@ const tagWithAttributes = /(<\/?)([^ ]*) ?([^/]*)(\/?>)/
 const doubleQuotes = /"/g
 const leadingSpaces = /^( *)/
 const attributesAndValues = /[^=]*="[^"]*"/g
-const closingRootTag = /\s{4}<\//
+const closingRootTag = /(\n\s{4}\/>)|(^\s{4}<\/)/
 
 const indentLine = indentLevel => str => ' '.repeat(indentLevel) + str
 const getStyleAttribute = str => {

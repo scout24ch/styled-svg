@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
-## [1.2.1] - 2017-09-15
+## [1.2.2] - 2017-09-15
 ### Fixed
 - Use file content for hash, instead of file path
+- Consecutive child tags broke the output
 
 ## [1.2.0] - 2017-09-15
 ### Fixed
