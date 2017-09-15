@@ -1,9 +1,9 @@
 const SVGO = require('svgo')
 const crypto = require('crypto')
 
-module.exports = (content, filename) => {
+module.exports = content => {
   // generate a unique id prefix, to ensure id's stay unique
-  const filenameHash = crypto.createHash('sha1').update(filename).digest('hex').slice(-10)
+  const hash = crypto.createHash('sha1').update(content).digest('hex').slice(-10)
 
   const svgoOptions = {
     js2svg: {
@@ -31,7 +31,7 @@ module.exports = (content, filename) => {
       { cleanupIDs: {
         remove: true,
         minify: true,
-        prefix: `s-${filenameHash}-`
+        prefix: `s-${hash}-`
       } },
       { removeTitle: true },
       { convertStyleToAttrs: false },

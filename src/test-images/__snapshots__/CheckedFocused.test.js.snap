@@ -9,7 +9,7 @@ exports[`CheckedFocused.svg generated styled component renders correctly accordi
     <circle
       cx="7"
       cy="7"
-      id="s-baa78cd811-a"
+      id="s-c19cde862f-a"
       r="7"
     />
   </defs>
@@ -19,7 +19,7 @@ exports[`CheckedFocused.svg generated styled component renders correctly accordi
   >
     <use
       fill="#FFF"
-      xlinkHref="#s-baa78cd811-a"
+      xlinkHref="#s-c19cde862f-a"
     />
     <circle
       cx="7"
