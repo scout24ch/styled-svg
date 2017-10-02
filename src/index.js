@@ -5,7 +5,7 @@ const optimize = require('./optimize')
 const { pascalCase } = require('./stringOperations')
 
 const endsWithSvg = /\.svg$/i
-const viewBoxAttribute = /viewBox="([\s\d]+)"/i
+const viewBoxAttribute = /viewBox="([\s\d.]+)"/i
 const whitespace = /\s+/
 
 const readTemplate = name => fs.readFileSync(path.join(__dirname, 'templates', name + '.js'), 'utf8')
@@ -24,18 +24,15 @@ const convertFile = (filename, templates) => {
   const importPath = './' + componentFilename
   const outputFile = path.join(fileDir, componentFilename)
 
-  let width = 0
-  let height = 0
-  let viewBox = []
-
+  let viewBox = [0, 0, 0, 0]
   return optimize(origContent)
     .then(content => content.trim())
     .then(content => {
       let tempViewBox = origContent.match(viewBoxAttribute)
       if (tempViewBox && tempViewBox[1]) {
-        viewBox = tempViewBox[1].trim().split(whitespace)
-        width = (parseInt(viewBox[2], 10) || 0) - (parseInt(viewBox[0], 10) || 0)
-        height = (parseInt(viewBox[3], 10) || 0) - (parseInt(viewBox[1], 10) || 0)
+        tempViewBox = tempViewBox[1].trim().split(whitespace)
+        if (tempViewBox.length !== 4) { return content }
+        viewBox = tempViewBox.map(number => Math.round(parseFloat(number || 0)))
       }
       return content
     })
@@ -44,8 +41,8 @@ const convertFile = (filename, templates) => {
       fs.writeFileSync(outputFile,
         templates.component
           .replace('\'{{SVG}}\'', content)
-          .replace('{{WIDTH}}', width)
-          .replace('{{HEIGHT}}', height)
+          .replace('{{WIDTH}}', viewBox[2])
+          .replace('{{HEIGHT}}', viewBox[3])
           .replace('{{VIEWBOX}}', viewBox.join(' '))
           .replace('{{NAME}}', displayName)
           .replace(' // eslint-disable-line no-unused-vars', '')
