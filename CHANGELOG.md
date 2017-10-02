@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.2.3] - 2017-10-02
+### Fixed
+- Fixed viewBox parsing: allow floats, allow origins other than zero
+
 ## [1.2.2] - 2017-09-15
 ### Fixed
 - Use file content for hash, instead of file path
