@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.3.1] - 2017-10-16
+### Fixed
+- Fix test suite dependencies
+
 ## [1.3.0] - 2017-10-16
 ### Fixed
 - Update to React 16
