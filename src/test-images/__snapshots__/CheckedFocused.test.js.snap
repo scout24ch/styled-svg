@@ -5,31 +5,38 @@ exports[`CheckedFocused.svg generated styled component renders correctly accordi
   className="sc-bdVaJa krLNZu"
   viewBox="0 0 14 14"
 >
-  <defs>
+  <defs
+    key="key-1"
+  >
     <circle
       cx="7"
       cy="7"
       id="s-c19cde862f-a"
+      key="s-c19cde862f-a"
       r="7"
     />
   </defs>
   <g
     fill="none"
     fillRule="evenodd"
+    key="key-4"
   >
     <use
       fill="#FFF"
+      key="key-5"
       xlinkHref="#s-c19cde862f-a"
     />
     <circle
       cx="7"
       cy="7"
+      key="key-6"
       r="6.5"
       stroke="#FF7500"
     />
     <circle
       cx="7"
       cy="7"
+      key="key-7"
       r="7.5"
       stroke="#FFF"
     />
@@ -37,6 +44,7 @@ exports[`CheckedFocused.svg generated styled component renders correctly accordi
       cx="7"
       cy="7"
       fill="#FF7500"
+      key="key-8"
       r="3"
     />
   </g>
