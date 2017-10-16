@@ -21,7 +21,7 @@ const getStyleAttribute = str => {
 
 module.exports = svg => svg
   .split('\n')
-  .reduce((buffer, line) => {
+  .reduce((buffer, line, lineIndex) => {
     const matches = line.match(tagWithAttributes)
     if (!matches) { return buffer }
     const closingTag = matches[1] === '</'
@@ -31,6 +31,7 @@ module.exports = svg => svg
     const indentLevel = line.match(leadingSpaces)[1].length
     const indentParentLine = indentLine(indentLevel + 2)
     const indentChildLine = indentLine(indentLevel + 2 + 2)
+    let keyAttribute = `'key-${lineIndex}'`
     const attributes = (attrsStr.match(attributesAndValues) || [])
       .map(str => {
         const [key, val] = str
@@ -38,6 +39,7 @@ module.exports = svg => svg
           .replace(doubleQuotes, '\'')
           .split('=')
         if (key === 'class') { return null }
+        if (key === 'id') { keyAttribute = val }
         if (key === 'style') {
           return getStyleAttribute(str)
             .map(indentChildLine)
@@ -45,6 +47,9 @@ module.exports = svg => svg
         }
         return indentChildLine(`${camelCase(key)}=${val}`)
       })
+      .concat(
+        indentChildLine(`key=${keyAttribute}`)
+      )
       .filter(line => line)
       .join('\n')
 
