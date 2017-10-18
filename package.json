@@ -7,7 +7,7 @@
     "styled-svg": "./bin/styled-svg.js"
   },
   "scripts": {
-    "develop": "nodemon -x \"npm run test\"",
+    "develop": "CI=1 nodemon -x 'npm run test' --ignore 'test-images/*.js'",
     "lint": "standard",
     "lint:fix": "standard --fix",
     "test": "bin/styled-svg.js && node jest/test.js"
