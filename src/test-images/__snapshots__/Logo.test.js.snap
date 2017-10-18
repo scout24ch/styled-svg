@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Logo.svg generated styled component renders correctly according to snapshot 1`] = `
+.c0 {
+  width: 116px;
+  height: 56px;
+}
+
 <svg
-  className="sc-bdVaJa hcHNvy"
+  className="c0"
   viewBox="0 0 116 56"
 >
   <path

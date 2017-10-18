@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckedFocused.svg generated styled component renders correctly according to snapshot 1`] = `
+.c0 {
+  width: 14px;
+  height: 14px;
+}
+
 <svg
-  className="sc-bdVaJa krLNZu"
+  className="c0"
   viewBox="0 0 14 14"
 >
   <defs

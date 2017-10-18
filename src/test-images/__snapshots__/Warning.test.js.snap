@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Warning.svg generated styled component renders correctly according to snapshot 1`] = `
+.c0 {
+  width: 18px;
+  height: 18px;
+}
+
 <svg
-  className="sc-bdVaJa euUian"
+  className="c0"
   viewBox="0 0 18 18"
 >
   <g
