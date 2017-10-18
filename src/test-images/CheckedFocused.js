@@ -22,46 +22,41 @@ const Image = styled.svg`
 const defaultProps = {
   children: [
     <defs
-      key='key-1'
+      key='key-0'
     >
       <circle
         id='s-c19cde862f-a'
         cx='7'
         cy='7'
         r='7'
-        key='s-c19cde862f-a'
       />
     </defs>,
     <g
       fill='none'
       fillRule='evenodd'
-      key='key-4'
+      key='key-1'
     >
       <use
         fill='#FFF'
         xlinkHref='#s-c19cde862f-a'
-        key='key-5'
       />
       <circle
         cx='7'
         cy='7'
         r='6.5'
         stroke='#FF7500'
-        key='key-6'
       />
       <circle
         cx='7'
         cy='7'
         r='7.5'
         stroke='#FFF'
-        key='key-7'
       />
       <circle
         cx='7'
         cy='7'
         r='3'
         fill='#FF7500'
-        key='key-8'
       />
     </g>
   ],
