@@ -4,7 +4,7 @@ Generate [styled-components 💅](https://www.styled-components.com/) from SVG f
 [![Build Status](https://travis-ci.org/Scout24-CH/styled-svg.svg?branch=master)](https://travis-ci.org/Scout24-CH/styled-svg)
 
 ## What's this?
-This utility generates React commponents, using the `styled.svg` function. Just drop the .svg somewhere in the project, run the tool and start using your svg files as [inline svg](http://caniuse.com/#feat=svg-html5) with all React and `styled-components` beauty. As a bonus, all svg files will be pre-optimized, using the awesome [svgo](https://github.com/svg/svgo) library.
+This utility generates React commponents, using the `styled.svg` function. Just drop the .svg somewhere in the project, run the tool and start using your svg files as [inline svg](http://caniuse.com/#feat=svg-html5) with all React and `styled-components` beauty. As a bonus, all svg files are optimized, using the awesome [svgo](https://github.com/svg/svgo) library.
 
 ### How it looks like
 Expample input file `arrow-down.svg`
