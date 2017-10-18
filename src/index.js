@@ -8,7 +8,9 @@ const endsWithSvg = /\.svg$/i
 const viewBoxAttribute = /viewBox="([\s\d.]+)"/i
 const whitespace = /\s+/
 
-const readTemplate = name => fs.readFileSync(path.join(__dirname, 'templates', name + '.js'), 'utf8')
+const readTemplate = name => fs.readFileSync(path.join(
+  __dirname, '..', 'templates', name + '.js'
+), 'utf8')
 
 const templates = {
   component: readTemplate('component'),
