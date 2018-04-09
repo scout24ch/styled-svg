@@ -5,7 +5,7 @@ const optimize = require('./optimize')
 const { pascalCase } = require('./stringOperations')
 
 const endsWithSvg = /\.svg$/i
-const viewBoxAttribute = /viewBox="([\s\d.]+)"/i
+const viewBoxAttribute = /viewBox="([\s-\d.]+)"/i
 const whitespace = /\s+/
 
 const readTemplate = name => fs.readFileSync(path.join(
