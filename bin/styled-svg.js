@@ -75,7 +75,7 @@ if (options.help || options._unknown) {
   const globby = require('globby')
   const convert = require('..')
 
-  globby(options.sources)
+  globby(options.input)
     .then((files) => {
       convert(files, options)
     })
