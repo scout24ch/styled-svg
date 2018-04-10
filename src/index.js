@@ -101,7 +101,7 @@ module.exports = async (files, options) => {
     }
     if (options.testDir) {
       await del([
-        join(options.testDir, '*.js')
+        join(options.testDir, '*.test.js')
       ])
     }
   }
