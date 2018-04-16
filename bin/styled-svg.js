@@ -9,7 +9,8 @@ const commandLineArgs = require('command-line-args')
 
 const optionsDefinitions = [
   {
-    name: 'sources',
+    name: 'input',
+    alias: 'i',
     description: 'The input files to process.',
     type: String,
     multiple: true,
