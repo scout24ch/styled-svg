@@ -32,8 +32,8 @@
     "command-line-args": "^5.0.2",
     "command-line-usage": "^5.0.4",
     "del": "^3.0.0",
+    "fs-extra": "^5.0.0",
     "globby": "^8.0.1",
-    "mkdirp-promise": "^5.0.1",
     "svgo": "0.7.2"
   },
   "devDependencies": {

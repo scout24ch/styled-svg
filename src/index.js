@@ -1,21 +1,18 @@
-const fs = require('fs')
-const mkdirp = require('mkdirp-promise')
+const fs = require('fs-extra')
 const path = require('path')
-const {promisify} = require('util')
+
 const indent = require('./indent')
 const optimize = require('./optimize')
 const { pascalCase } = require('./stringOperations')
 
-const readFile = promisify(fs.readFile)
-const _writeFile = promisify(fs.writeFile)
-const writeFile = async (filePath, content, options) => {
+const writeOut = async (filePath, content, options) => {
   if (options.dryRun) {
     console.log('\n')
     console.log(filePath)
     console.log(content)
   } else {
-    await mkdirp(path.dirname(filePath))
-    await _writeFile(filePath, content)
+    await fs.ensureDir(path.dirname(filePath))
+    await fs.writeFile(filePath, content)
   }
 }
 
@@ -28,21 +25,21 @@ const join = (...args) => path.normalize(path.join(...args))
 const convertFile = async (filePath, templates, options) => {
   let viewBox = [0, 0, 0, 0]
 
-  // Determine names
+  // determine names
   const displayName = pascalCase(path.basename(filePath).replace(endsWithSvg, ''))
   const componentFilename = displayName + '.js'
   const testFilename = displayName + '.test.js'
 
-  // Resolve paths
+  // resolve paths
   const testDir = options.testDir || './'
   const outputDir = options.outputDir || path.dirname(filePath)
   const outputTestDir = join(outputDir, testDir)
   const importRelativePath = path.relative(outputTestDir, outputDir).replace(path.sep, '/') || '.'
 
-  // Load file content
-  const origContent = await readFile(filePath, {encoding: 'utf8'})
+  // load file content
+  const origContent = await fs.readFile(filePath, 'utf8')
 
-  // Get cleanedup viewBox
+  // get clean up viewBox
   let tempViewBox = origContent.match(viewBoxAttribute)
   if (tempViewBox && tempViewBox[1].trim()) {
     tempViewBox = tempViewBox[1].trim().split(whitespace)
@@ -51,15 +48,15 @@ const convertFile = async (filePath, templates, options) => {
     }
   }
 
-  // Run SVG Optimizers
+  // run SVG optimizers
   const content = await optimize(origContent)
 
-  // React formatted SVG
+  // react formatted SVG
   const formattedContent = indent(content.trim())
 
-  // Output Component and Test file
+  // output component and test file
   await Promise.all([
-    writeFile(
+    writeOut(
       join(outputDir, componentFilename),
       templates.component
         .replace("'{{SVG}}'", formattedContent)
@@ -70,7 +67,7 @@ const convertFile = async (filePath, templates, options) => {
         .replace(' // eslint-disable-line no-unused-vars', ''),
       options
     ),
-    writeFile(
+    writeOut(
       join(outputTestDir, testFilename),
       templates.test
         .replace('{{FILENAME}}', `${importRelativePath}/${componentFilename}`)
@@ -84,14 +81,14 @@ const convertFile = async (filePath, templates, options) => {
 }
 
 module.exports = async (files, options) => {
-  // Load templates
+  // load templates
   const templatesDir = options.templatesDir || join(__dirname, '..', 'templates')
   const templates = {
-    component: await readFile(join(templatesDir, 'component.js'), {encoding: 'utf8'}),
-    test: await readFile(join(templatesDir, 'enzyme.js'), {encoding: 'utf8'})
+    component: await fs.readFile(join(templatesDir, 'component.js'), 'utf8'),
+    test: await fs.readFile(join(templatesDir, 'enzyme.js'), 'utf8')
   }
 
-  // Clean output directories
+  // clean output directories
   if (options.clean) {
     const del = require('del')
     if (options.outputDir) {
@@ -106,6 +103,6 @@ module.exports = async (files, options) => {
     }
   }
 
-  // Convert files
+  // convert files
   Promise.all(files.map(file => convertFile(file, templates, options)))
 }
