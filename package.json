@@ -10,8 +10,8 @@
     "develop": "CI=1 nodemon -x 'npm run test' --ignore 'test-images/*.js'",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "bin/styled-svg.js && node jest/test.js",
-    "test:coverage": "bin/styled-svg.js && node jest/test.js --coverage"
+    "test": "node bin/styled-svg.js && node jest/test.js",
+    "test:coverage": "node bin/styled-svg.js && node jest/test.js --coverage"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,11 @@
   },
   "homepage": "https://github.com/jaggli/styled-svg#readme",
   "dependencies": {
-    "glob": "7.1.2",
+    "command-line-args": "^5.0.2",
+    "command-line-usage": "^5.0.4",
+    "del": "^3.0.0",
+    "globby": "^8.0.1",
+    "mkdirp-promise": "^5.0.1",
     "svgo": "0.7.2"
   },
   "devDependencies": {
