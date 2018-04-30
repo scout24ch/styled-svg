@@ -40,7 +40,7 @@ const optionsDefinitions = [
   },
   {
     name: 'templates-dir',
-    description: 'The directory to use for templates',
+    description: 'The directory to use for templates. Defaults to internal templates',
     type: String
   },
   {
