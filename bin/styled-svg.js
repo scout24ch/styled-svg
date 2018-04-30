@@ -4,7 +4,7 @@
 
 process.title = 'styled-svg'
 
-// Setup CLI options and usage
+// setup CLI options and usage
 const commandLineArgs = require('command-line-args')
 
 const optionsDefinitions = [
@@ -66,13 +66,13 @@ if (options.help || options._unknown) {
   ])
   console.log(usage)
 } else {
-  // Shim friendly options
+  // shim friendly options
   options.outputDir = options['output-dir']
   options.testDir = options['test-dir']
   options.templatesDir = options['templates-dir']
   options.dryRun = options['dry-run']
 
-  // Execute on sources
+  // execute on sources
   const globby = require('globby')
   const convert = require('..')
 
