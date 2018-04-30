@@ -8,7 +8,8 @@ const closingRootTag = /(\n\s{4}\/>)|(^\s{4}<\/)/
 
 const indentLine = indentLevel => str => ' '.repeat(indentLevel) + str
 const getStyleAttribute = str => {
-  const props = str.substring('style="'.length, str.length - 1).split(';')
+  const trimmedStr = str.trim()
+  const props = trimmedStr.substring('style="'.length, trimmedStr.length - 1).split(';')
   return [
     'style={{',
     ...props.map(prop => {
