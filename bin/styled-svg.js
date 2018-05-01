@@ -77,10 +77,8 @@ if (options.help || options._unknown) {
   const convert = require('..')
 
   globby(options.input)
-    .then((files) => {
-      convert(files, options)
-    })
-    .catch((err) => {
+    .then(files => convert(files, options))
+    .catch(err => {
       console.log(err.stack)
       process.exit(1)
     })
