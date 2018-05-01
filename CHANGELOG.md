@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.4.0] - 2018-05-01
+### Added
+- Added CLI options - thx [stramel](https://github.com/stramel)
+### Fixed
+- Trim style attribute before parsing - thx [stramel](https://github.com/stramel)
+- Allow negative values in viewBox - thx [stramel](https://github.com/stramel)
+
 ## [1.3.2] - 2017-10-18
 ### Added
 - Coverage reports
