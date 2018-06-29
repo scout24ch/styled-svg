@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - _empty_
 
+## [1.4.1] - 2018-06-29
+### Fixed
+- Skip svg files with missing viewBox attribute
+
 ## [1.4.0] - 2018-05-01
 ### Added
 - Added CLI options - thx [stramel](https://github.com/stramel)
