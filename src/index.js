@@ -41,11 +41,23 @@ const convertFile = async (filePath, templates, options) => {
 
   // get clean up viewBox
   let tempViewBox = origContent.match(viewBoxAttribute)
+  let foundViewbox = false
   if (tempViewBox && tempViewBox[1].trim()) {
     tempViewBox = tempViewBox[1].trim().split(whitespace)
     if (tempViewBox.length === 4) {
       viewBox = tempViewBox.map(number => Math.round(parseFloat(number || 0)))
+      foundViewbox = true
     }
+  }
+
+  // exit if viewbox was missing
+  if (!foundViewbox) {
+    console.error(
+      'Skipped',
+      filePath.replace(process.cwd(), '.'),
+      'viewBox attribute missing or malformated'
+    )
+    return
   }
 
   // run SVG optimizers
