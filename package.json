@@ -10,7 +10,7 @@
     "develop": "CI=1 nodemon -x 'npm run test' --ignore 'test-images/*.js'",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "test": "node bin/styled-svg.js && node jest/test.js",
+    "test": "node bin/styled-svg.js **/*.svg --size=small:18x18 --size=medium:24x24 --size=large:36x36 && node jest/test.js",
     "test:coverage": "node bin/styled-svg.js && node jest/test.js --coverage"
   },
   "repository": {
@@ -37,17 +37,18 @@
     "svgo": "0.7.2"
   },
   "devDependencies": {
-    "babel-preset-react-app": "^3.0.2",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-preset-react-app": "^3.1.2",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.1.2",
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
     "jest-enzyme": "^4.0.1",
     "jest-styled-components": "^4.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-test-renderer": "^16.5.1",
     "standard": "^10.0.3",
     "styled-components": "^2.2.1"
   },
