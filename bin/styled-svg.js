@@ -44,6 +44,12 @@ const optionsDefinitions = [
     type: String
   },
   {
+    name: 'size',
+    multiple: true,
+    description: 'Size prop values for the components, with their corresponding pixel values. Usefull for icons. Examples: "small:18x18" "medium:24x24" ',
+    type: String
+  },
+  {
     name: 'help',
     alias: 'h',
     type: Boolean,
@@ -52,6 +58,7 @@ const optionsDefinitions = [
 ]
 
 const options = commandLineArgs(optionsDefinitions)
+console.log(options)
 
 if (options.help || options._unknown) {
   const usage = require('command-line-usage')([

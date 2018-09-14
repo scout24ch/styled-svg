@@ -71,19 +71,19 @@ const convertFile = async (filePath, templates, options) => {
     writeOut(
       join(outputDir, componentFilename),
       templates.component
-        .replace("'{{SVG}}'", formattedContent)
-        .replace('{{WIDTH}}', viewBox[2])
-        .replace('{{HEIGHT}}', viewBox[3])
-        .replace('{{VIEWBOX}}', viewBox.join(' '))
-        .replace('{{NAME}}', displayName)
+        .replace('##SVG##', formattedContent)
+        .replace('##WIDTH##', viewBox[2])
+        .replace('##HEIGHT##', viewBox[3])
+        .replace('##VIEWBOX##', viewBox.join(' '))
+        .replace('##NAME##', displayName)
         .replace(' // eslint-disable-line no-unused-vars', ''),
       options
     ),
     writeOut(
       join(outputTestDir, testFilename),
       templates.test
-        .replace('{{FILENAME}}', `${importRelativePath}/${componentFilename}`)
-        .replace('{{NAME}}', displayName),
+        .replace('##FILENAME##', `${importRelativePath}/${componentFilename}`)
+        .replace('##NAME##', displayName),
       options
     )
   ])

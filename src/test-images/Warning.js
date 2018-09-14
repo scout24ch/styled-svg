@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled, { css } from 'styled-components'
 
 const width = '18'
@@ -19,8 +19,8 @@ const Image = styled.svg`
   ${({noStyles}) => !noStyles ? getDimensionsCss() : null}
 `
 
-const defaultProps = {
-  children: [
+const children = (
+  <Fragment>
     <g
       fill='none'
       fillRule='evenodd'
@@ -35,7 +35,11 @@ const defaultProps = {
         d='M9.02 12a1 1 0 0 1-1-1V5a1 1 0 0 1 2.001 0v6a1 1 0 0 1-1 1m0 4c-.261 0-.521-.11-.712-.29-.18-.19-.29-.44-.29-.71 0-.27.11-.52.29-.71.37-.37 1.042-.37 1.422 0 .18.19.29.45.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29'
       />
     </g>
-  ],
+  </Fragment>
+)
+
+const defaultProps = {
+  children,
   viewBox
 }
 

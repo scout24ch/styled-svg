@@ -1,9 +1,9 @@
-import React from 'react' // eslint-disable-line no-unused-vars
+import React, { Fragment } from 'react'
 import styled, { css } from 'styled-components'
 
-const width = '{{WIDTH}}'
-const height = '{{HEIGHT}}'
-const viewBox = '{{VIEWBOX}}'
+const width = '##WIDTH##'
+const height = '##HEIGHT##'
+const viewBox = '##VIEWBOX##'
 
 const getDimensions = () => ({
   height,
@@ -19,10 +19,14 @@ const Image = styled.svg`
   ${({noStyles}) => !noStyles ? getDimensionsCss() : null}
 `
 
+const children = (
+  <Fragment>
+    ##SVG##
+  </Fragment>
+)
+
 const defaultProps = {
-  children: [
-    '{{SVG}}'
-  ],
+  children,
   viewBox
 }
 
@@ -30,5 +34,5 @@ export default Object.assign(Image, {
   getDimensions,
   getDimensionsCss,
   defaultProps,
-  displayName: '{{NAME}}'
+  displayName: '##NAME##'
 })

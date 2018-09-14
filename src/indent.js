@@ -4,7 +4,8 @@ const tagWithAttributes = /(<\/?)([^ ]*) ?([^/]*)(\/?>)/
 const doubleQuotes = /"/g
 const leadingSpaces = /^( *)/
 const attributesAndValues = /[^=]*="[^"]*"/g
-const closingRootTag = /(\n\s{4}\/>)|(^\s{4}<\/)/
+
+const indentBase = 2
 
 const indentLine = indentLevel => str => ' '.repeat(indentLevel) + str
 const getStyleAttribute = str => {
@@ -30,8 +31,8 @@ module.exports = svg => svg
     const attrsStr = matches[3]
     const autoclosingTag = matches[4] === '/>'
     const indentLevel = line.match(leadingSpaces)[1].length
-    const indentParentLine = indentLine(indentLevel + 2)
-    const indentChildLine = indentLine(indentLevel + 2 + 2)
+    const indentParentLine = indentLine(indentLevel + indentBase)
+    const indentChildLine = indentLine(indentLevel + indentBase + 2)
     const attributes = (attrsStr.match(attributesAndValues) || [])
       .map(str => {
         const [key, val] = str
@@ -61,11 +62,5 @@ module.exports = svg => svg
       .filter(line => line)
       .join('\n'))
   }, [])
-  .map((line, i, buffer) => {
-    if (buffer[i + 1] && line.match(closingRootTag)) {
-      return line + ','
-    }
-    return line
-  })
   .join('\n')
   .trim()
