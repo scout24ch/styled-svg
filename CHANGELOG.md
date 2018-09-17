@@ -6,9 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.1.1] - 2018-09-17
+## [2.1.1, 2.1.2] - 2018-09-17
 ### Changed
 - lint and audit fix
+- bugfix wrong sizes object was used in template
 
 ## [2.1.0] - 2018-09-17
 ### Changed
