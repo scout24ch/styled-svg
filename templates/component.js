@@ -8,7 +8,7 @@ const viewBox = '##VIEWBOX##'
 
 const sizes = '##SIZES##'
 
-const getDimensions = size => {
+const getDimensions = (size, sizes) => {
   if (size && typeof size.width === 'number' && typeof size.height === 'number') {
     return size
   }
@@ -17,8 +17,9 @@ const getDimensions = size => {
     : { width, height }
 }
 
-const getCss = (size, fillColor, fillColorRule) => {
-  const dimensions = getDimensions(size)
+const getCss = (size, sizes, fillColor, fillColorRule, noStyles) => {
+  if (noStyles) { return '' }
+  const dimensions = getDimensions(size, sizes)
   const fillRule = fillColor && fillColorRule ? `${fillColorRule}{ fill: ${fillColor}; }` : ''
   return css`
     width: ${dimensions.width}px;
@@ -27,12 +28,15 @@ const getCss = (size, fillColor, fillColorRule) => {
   `
 }
 
-const Image = styled.svg`
-  ${({noStyles, size, fillColor, fillColorRule}) => !noStyles
-    ? getCss(size, fillColor, fillColorRule)
-    : null
-  }
-`
+const propsToCss = ({
+  size,
+  sizes,
+  fillColor,
+  fillColorRule,
+  noStyles
+}) => getCss(size, sizes, fillColor, fillColorRule, noStyles)
+
+const Image = styled.svg`${propsToCss}`
 
 const children = (
   <Fragment>
