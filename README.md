@@ -8,13 +8,6 @@ Generate [styled-components 💅](https://www.styled-components.com/) from SVG f
 This utility generates React components, using the `styled.svg` function. Just drop the .svg somewhere in the project, run the tool and start using your svg files as [inline svg](http://caniuse.com/#feat=svg-html5) with all React and `styled-components` beauty. As a bonus, all svg files are optimized, using the awesome [svgo](https://github.com/svg/svgo) library.
 
 ### How it looks like
-Expample input file `arrow-down.svg`
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-  <path fill="#0077D0" fill-rule="evenodd" d="M9.00010711,13.0001535 L3.26010711,6.67315352 C2.88910711,6.26415352 2.91810711,5.63115352 3.32710711,5.26015352 C3.73610711,4.88815352 4.36910711,4.91915352 4.74010711,5.32715352 L9.00010711,10.0131535 L13.2601071,5.32715352 C13.6311071,4.92015352 14.2641071,4.88915352 14.6731071,5.26015352 C15.0821071,5.63115352 15.1111071,6.26415352 14.7401071,6.67315352 L9.00010711,13.0001535 Z"/>
-</svg>
-```
 
 <details>
 <summary>
