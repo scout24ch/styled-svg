@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 const width = '116'
@@ -15,18 +16,23 @@ const getDimensions = size => size && sizes[size]
   ? sizes[size]
   : { width, height }
 
-const getDimensionsCss = size => size && sizes[size]
-  ? css`
-    width: ${sizes[size].width}px;
-    height: ${sizes[size].height}px;
+const getCss = (size, fillColor, fillColorRule) => {
+  const dimensions = getDimensions(size)
+  return css`
+    width: ${dimensions.width}px;
+    height: ${dimensions.height}px;
+    ${fillColor && fillColorRule
+      ? `${fillColorRule}{ fill: ${fillColor}; }`
+      : ``
+    }
   `
-  : css`
-    width: ${width}px;
-    height: ${height}px;
-  `
+}
 
 const Image = styled.svg`
-  ${({noStyles, size}) => !noStyles ? getDimensionsCss(size) : null}
+  ${({noStyles, size, fillColor, fillColorRule}) => !noStyles
+    ? getCss(size, fillColor, fillColorRule)
+    : null
+  }
 `
 
 const children = (
@@ -56,12 +62,22 @@ const children = (
 
 const defaultProps = {
   children,
-  viewBox
+  viewBox,
+  fillColor: null,
+  fillColorRule: '&&& path, &&& use, &&& g'
+}
+
+const propTypes = {
+  fillColor: PropTypes.string,
+  fillColorRule: PropTypes.string,
+  viewBox: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Object.assign(Image, {
   getDimensions,
-  getDimensionsCss,
+  getCss,
   defaultProps,
+  propTypes,
   displayName: 'Logo'
 })
