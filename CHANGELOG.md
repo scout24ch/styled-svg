@@ -5,9 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.0] - 2018-09-17
 ### Breaking
-- new template string format
 - removed `getDimensionsCss()` --> use `getCss()`
+- new template string format in component template
+  - `##SVG##` = JSX - all svg child nodes
+  - `##WIDTH##` = Number - original width
+  - `##HEIGHT##` = Number - original height
+  - `##VIEWBOX##` = String - viewBox expression
+  - `##NAME##` = String - name derived from filename
+  - `'##SIZES##'` = Object - size aliases, keys are the names, values are objects in this form `{ width: 12, height: 12 }`
+- new template string format in test template
+  - `##FILENAME##` = String - original filenanme
+  - `##NAME##` = String - name derived from filename
 
 ### Added
 - getCss( size )
