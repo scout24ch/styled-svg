@@ -19,13 +19,11 @@ const getDimensions = size => {
 
 const getCss = (size, fillColor, fillColorRule) => {
   const dimensions = getDimensions(size)
+  const fillRule = fillColor && fillColorRule ? `${fillColorRule}{ fill: ${fillColor}; }` : ''
   return css`
     width: ${dimensions.width}px;
     height: ${dimensions.height}px;
-    ${fillColor && fillColorRule
-      ? `${fillColorRule}{ fill: ${fillColor}; }`
-      : ``
-    }
+    ${fillRule}
   `
 }
 
