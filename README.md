@@ -9,6 +9,9 @@ This utility generates React components, using the `styled.svg` function. Just d
 
 ### How it looks like
 
+- warning.svg
+- `npx styled-svg **/*.svg --size=small:18x18 --size=medium:24x24 --size=large:36x36`
+
 <details>
 <summary>
   Input and generated output example
