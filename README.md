@@ -8,45 +8,94 @@ Generate [styled-components 💅](https://www.styled-components.com/) from SVG f
 This utility generates React components, using the `styled.svg` function. Just drop the .svg somewhere in the project, run the tool and start using your svg files as [inline svg](http://caniuse.com/#feat=svg-html5) with all React and `styled-components` beauty. As a bonus, all svg files are optimized, using the awesome [svgo](https://github.com/svg/svgo) library.
 
 ### How it looks like
-Expample input file `arrow-down.svg`
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-  <path fill="#0077D0" fill-rule="evenodd" d="M9.00010711,13.0001535 L3.26010711,6.67315352 C2.88910711,6.26415352 2.91810711,5.63115352 3.32710711,5.26015352 C3.73610711,4.88815352 4.36910711,4.91915352 4.74010711,5.32715352 L9.00010711,10.0131535 L13.2601071,5.32715352 C13.6311071,4.92015352 14.2641071,4.88915352 14.6731071,5.26015352 C15.0821071,5.63115352 15.1111071,6.26415352 14.7401071,6.67315352 L9.00010711,13.0001535 Z"/>
+
+- warning.svg
+- `npx styled-svg **/*.svg --size=small:18x18 --size=medium:24x24 --size=large:36x36`
+
+<details>
+<summary>
+  Input and generated output example
+</summary>
+  
+### Input
+```svg
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/flashmessage/warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Component-and-pattern-library" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flashmessages" transform="translate(-112.000000, -860.000000)">
+            <g id="Components" transform="translate(101.000000, 194.000000)">
+                <g id="Alert-Warning" transform="translate(1.001009, 552.000000)">
+                    <g id="Alert-warning-message-inpage" transform="translate(0.000000, 106.000000)">
+                        <g id="icon/flashmessage/warning" transform="translate(10.010091, 8.000000)">
+                            <path d="M7.225,1.095 L5.668,4.193 L0.193,15.143 C0.074,15.408 0,15.694 0,16 C0,17.105 0.895,18 2,18 L9,18 L16,18 C17.105,18 18,17.105 18,16 C18,15.694 17.926,15.408 17.803,15.149 L12.332,4.193 L10.775,1.095 C10.444,0.448 9.778,0 9,0 C8.223,0 7.557,0.448 7.225,1.095 Z" id="Fill-1" fill="#FFCF29"></path>
+                            <path d="M9.00908174,12 C8.45652472,12 8.00807265,11.553 8.00807265,11 L8.00807265,5 C8.00807265,4.448 8.45652472,4 9.00908174,4 C9.56163875,4 10.0100908,4.448 10.0100908,5 L10.0100908,11 C10.0100908,11.553 9.56163875,12 9.00908174,12 M9.00908174,16 C8.74881937,16 8.48855701,15.89 8.29836529,15.71 C8.11818365,15.52 8.00807265,15.27 8.00807265,15 C8.00807265,14.73 8.11818365,14.48 8.29836529,14.29 C8.66873865,13.92 9.33941473,13.92 9.71979818,14.29 C9.89997982,14.48 10.0100908,14.74 10.0100908,15 C10.0100908,15.26 9.89997982,15.52 9.71979818,15.71 C9.52960646,15.89 9.2693441,16 9.00908174,16" id="Fill-1" fill="#333333"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>
 ```
 
-Generated output file **ArrowDown.js**
+### Output
 ```jsx
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled, { css } from 'styled-components'
 
 const width = '18'
 const height = '18'
 const viewBox = '0 0 18 18'
 
-const getDimensions = () => ({
-  height,
-  width
-})
+const sizes = {
+  small: { width: 18, height: 18 },
+  medium: { width: 24, height: 24 },
+  large: { width: 36, height: 36 }
+}
 
-const getDimensionsCss = () => css`
-  width: ${width}px;
-  height: ${height}px;
-`
+const getDimensions = size => size && sizes[size]
+  ? sizes[size]
+  : { width, height }
+
+const getDimensionsCss = size => size && sizes[size]
+  ? css`
+    width: ${sizes[size].width}px;
+    height: ${sizes[size].height}px;
+  `
+  : css`
+    width: ${width}px;
+    height: ${height}px;
+  `
 
 const Image = styled.svg`
-  ${({noStyles}) => !noStyles ? getDimensionsCss() : null}
+  ${({noStyles, size}) => !noStyles ? getDimensionsCss(size) : null}
 `
 
-const defaultProps = {
-  children: [
-    <path
-      fill='#0077D0'
+const children = (
+  <Fragment>
+    <g
+      fill='none'
       fillRule='evenodd'
-      d='M9 13L3.26 6.673a1 1 0 0 1 1.48-1.346L9 10.013l4.26-4.686a1 1 0 0 1 1.48 1.346L9 13z'
-    />
-  ],
+      key='key-0'
+    >
+      <path
+        fill='#FFCF29'
+        d='M7.236 1.095L5.68 4.193.204 15.143A2 2 0 0 0 2.011 18h14a2 2 0 0 0 2-2c0-.306-.074-.592-.197-.851l-5.47-10.956-1.558-3.098A1.993 1.993 0 0 0 9.011 0c-.777 0-1.443.448-1.775 1.095z'
+      />
+      <path
+        fill='#333'
+        d='M9.02 12a1 1 0 0 1-1-1V5a1 1 0 0 1 2.001 0v6a1 1 0 0 1-1 1m0 4c-.261 0-.521-.11-.712-.29-.18-.19-.29-.44-.29-.71 0-.27.11-.52.29-.71.37-.37 1.042-.37 1.422 0 .18.19.29.45.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29'
+      />
+    </g>
+  </Fragment>
+)
+
+const defaultProps = {
+  children,
   viewBox
 }
 
@@ -54,9 +103,10 @@ export default Object.assign(Image, {
   getDimensions,
   getDimensionsCss,
   defaultProps,
-  displayName: 'ArrowDown'
+  displayName: 'Warning'
 })
 ```
+</details>
 
 ### Usage of the generated component
 ```js
