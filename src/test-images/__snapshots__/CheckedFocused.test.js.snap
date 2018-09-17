@@ -8,6 +8,7 @@ exports[`CheckedFocused.svg generated styled component renders correctly accordi
 
 <svg
   className="c0"
+  size={null}
   sizes={
     Object {
       "large": Object {

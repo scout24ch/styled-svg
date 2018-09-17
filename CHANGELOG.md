@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0] - 2018-09-17
+### Changed
+- sizes are stored in props now and might be overridden
+
 ## [2.0.0] - 2018-09-17
 ### Breaking
 - removed `getDimensionsCss()` --> use `getCss()`

@@ -12,9 +12,14 @@ const sizes = {
   large: { width: 36, height: 36 }
 }
 
-const getDimensions = size => size && sizes[size]
-  ? sizes[size]
-  : { width, height }
+const getDimensions = size => {
+  if (size && typeof size.width === 'number' && typeof size.height === 'number') {
+    return size
+  }
+  return size && sizes[size]
+    ? sizes[size]
+    : { width, height }
+}
 
 const getCss = (size, fillColor, fillColorRule) => {
   const dimensions = getDimensions(size)
@@ -65,7 +70,8 @@ const defaultProps = {
   viewBox,
   fillColor: null,
   fillColorRule: '&&& path, &&& use, &&& g',
-  sizes
+  sizes,
+  size: null
 }
 
 const propTypes = {
@@ -73,6 +79,13 @@ const propTypes = {
   fillColorRule: PropTypes.string,
   viewBox: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      height: PropTypes.number.isRequired,
+      width: PropTypes.number.isRequired
+    })
+  ]),
   sizes: (props, name, componentName) => {
     const prop = props[name]
     if (typeof prop !== 'object') { return }

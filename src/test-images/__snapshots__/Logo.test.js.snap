@@ -8,6 +8,7 @@ exports[`Logo.svg generated styled component renders correctly according to snap
 
 <svg
   className="c0"
+  size={null}
   sizes={
     Object {
       "large": Object {
