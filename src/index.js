@@ -3,6 +3,7 @@ const path = require('path')
 
 const indent = require('./indent')
 const optimize = require('./optimize')
+const serializeSizes = require('./serializeSizes')
 const { pascalCase } = require('./stringOperations')
 
 const writeOut = async (filePath, content, options) => {
@@ -66,6 +67,9 @@ const convertFile = async (filePath, templates, options) => {
   // react formatted SVG
   const formattedContent = indent(content.trim())
 
+  // handle size alias options
+  const sizes = serializeSizes(options)
+
   // output component and test file
   await Promise.all([
     writeOut(
@@ -76,7 +80,7 @@ const convertFile = async (filePath, templates, options) => {
         .replace('##HEIGHT##', viewBox[3])
         .replace('##VIEWBOX##', viewBox.join(' '))
         .replace('##NAME##', displayName)
-        .replace(' // eslint-disable-line no-unused-vars', ''),
+        .replace('\'##SIZES##\'', sizes),
       options
     ),
     writeOut(
@@ -89,7 +93,10 @@ const convertFile = async (filePath, templates, options) => {
   ])
 
   console.log('Converted',
-    filePath.replace(process.cwd(), '.'), ' => ', path.join(outputDir.replace(process.cwd(), '.'), displayName))
+    filePath.replace(process.cwd(), '.'),
+    ' => ',
+    path.join(outputDir.replace(process.cwd(), '.'), displayName)
+  )
 }
 
 module.exports = async (files, options) => {

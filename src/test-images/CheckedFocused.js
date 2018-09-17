@@ -5,18 +5,28 @@ const width = '14'
 const height = '14'
 const viewBox = '0 0 14 14'
 
-const getDimensions = () => ({
-  height,
-  width
-})
+const sizes = {
+  small: { width: 18, height: 18 },
+  medium: { width: 24, height: 24 },
+  large: { width: 36, height: 36 }
+}
 
-const getDimensionsCss = () => css`
-  width: ${width}px;
-  height: ${height}px;
-`
+const getDimensions = size => size && sizes[size]
+  ? sizes[size]
+  : { width, height }
+
+const getDimensionsCss = size => size && sizes[size]
+  ? css`
+    width: ${sizes[size].width}px;
+    height: ${sizes[size].height}px;
+  `
+  : css`
+    width: ${width}px;
+    height: ${height}px;
+  `
 
 const Image = styled.svg`
-  ${({noStyles}) => !noStyles ? getDimensionsCss() : null}
+  ${({noStyles, size}) => !noStyles ? getDimensionsCss(size) : null}
 `
 
 const children = (

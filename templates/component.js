@@ -5,18 +5,24 @@ const width = '##WIDTH##'
 const height = '##HEIGHT##'
 const viewBox = '##VIEWBOX##'
 
-const getDimensions = () => ({
-  height,
-  width
-})
+const sizes = '##SIZES##'
 
-const getDimensionsCss = () => css`
-  width: ${width}px;
-  height: ${height}px;
-`
+const getDimensions = size => size && sizes[size]
+  ? sizes[size]
+  : { width, height }
+
+const getDimensionsCss = size => size && sizes[size]
+  ? css`
+    width: ${sizes[size].width}px;
+    height: ${sizes[size].height}px;
+  `
+  : css`
+    width: ${width}px;
+    height: ${height}px;
+  `
 
 const Image = styled.svg`
-  ${({noStyles}) => !noStyles ? getDimensionsCss() : null}
+  ${({noStyles, size}) => !noStyles ? getDimensionsCss(size) : null}
 `
 
 const children = (

@@ -58,7 +58,6 @@ const optionsDefinitions = [
 ]
 
 const options = commandLineArgs(optionsDefinitions)
-console.log(options)
 
 if (options.help || options._unknown) {
   const usage = require('command-line-usage')([
