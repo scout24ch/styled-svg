@@ -8,6 +8,22 @@ exports[`Logo.svg generated styled component renders correctly according to snap
 
 <svg
   className="c0"
+  sizes={
+    Object {
+      "large": Object {
+        "height": 36,
+        "width": 36,
+      },
+      "medium": Object {
+        "height": 24,
+        "width": 24,
+      },
+      "small": Object {
+        "height": 18,
+        "width": 18,
+      },
+    }
+  }
   viewBox="0 0 116 56"
 >
   <path

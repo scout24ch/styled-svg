@@ -82,14 +82,26 @@ const defaultProps = {
   children,
   viewBox,
   fillColor: null,
-  fillColorRule: '&&& path, &&& use, &&& g'
+  fillColorRule: '&&& path, &&& use, &&& g',
+  sizes
 }
 
 const propTypes = {
   fillColor: PropTypes.string,
   fillColorRule: PropTypes.string,
   viewBox: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  sizes: (props, name, componentName) => {
+    const prop = props[name]
+    if (typeof prop !== 'object') { return }
+    for (let key in prop) {
+      if (!prop[key] || typeof prop[key].width !== 'number' || typeof prop[key].height !== 'number') {
+        return new Error(
+          'Invalid prop `' + name + '` supplied to' + ' `' + componentName + '`. Validation failed.'
+        )
+      }
+    }
+  }
 }
 
 export default Object.assign(Image, {
