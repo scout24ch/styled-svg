@@ -11,7 +11,7 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "test": "node bin/styled-svg.js **/*.svg --size=small:18x18 --size=medium:24x24 --size=large:36x36 && node jest/test.js",
-    "test:coverage": "node bin/styled-svg.js && node jest/test.js --coverage"
+    "test:coverage": "node bin/styled-svg.js **/*.svg --size=small:18x18 --size=medium:24x24 --size=large:36x36 && node jest/test.js --coverage"
   },
   "repository": {
     "type": "git",
