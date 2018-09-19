@@ -23,7 +23,7 @@ import ArrowDown from './Warning'
 const ComponentWithImage = props => (
   <div>
     {props.children}
-    <Warning fillColor='red' />
+    <Warning size='medium' fillColor='red' />
   </div>
 )
 
