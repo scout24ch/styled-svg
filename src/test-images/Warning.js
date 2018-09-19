@@ -88,7 +88,7 @@ const propTypes = {
     for (let key in prop) {
       if (!prop[key] || typeof prop[key].width !== 'number' || typeof prop[key].height !== 'number') {
         return new Error(
-          'Invalid prop `' + name + '` supplied to' + ' `' + componentName + '`. Validation failed.'
+          'Invalid prop `' + name + '` supplied to `' + componentName + '`. Validation failed.'
         )
       }
     }
