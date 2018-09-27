@@ -34,9 +34,9 @@ export default ComponentWithImage
 name | type | default | description
 :--- | :--- | :--- | :---
 fillColor | `String` / `null` | `null` | override fill color of paths and other elements
-fillColorRule | `String` | `'&&& path, &&& use, &&& g'` | rule for selecting elements to colorize
+fillColorRule | `String` | `'&&& path, &&& use, &&& g'` | rule for selecting elements to colorize, you only need to change this, for complex svg structures.
 size | `String` / `null` / `Object` | `null` | one of the sizes keys, to set the size, or an object `{ width, height }`
-sizes | `Object` | `{}` | Override  possible sizes (by default these are generated with the --size option) example below
+sizes | `Object` | `{}` | Override  possible sizes, example below (by default these are generated with the --size option, so you probably won't need this) 
 
 #### sizes prop example
 ```js
