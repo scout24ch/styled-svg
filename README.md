@@ -18,7 +18,7 @@ This utility generates React components, using the `styled.svg` function. Just d
 ### Usage of the generated component
 ```js
 import React from 'react'
-import ArrowDown from './Warning'
+import Warning from './Warning'
 
 const ComponentWithImage = props => (
   <div>
