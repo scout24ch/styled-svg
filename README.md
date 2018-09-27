@@ -73,7 +73,7 @@ Create a npm script entry in your package.json
 {
   //...
   "scripts": {
-    "svg": "styled-svg src/**/*.svg --size=small:18x18 --size=mediuim:24x24"
+    "svg": "styled-svg src/**/*.svg --size=small:18x18 --size=medium:24x24"
   },
   //...
 }
