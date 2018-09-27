@@ -36,10 +36,19 @@ name | type | default | description
 fillColor | `String` / `null` | `null` | override fill color of paths and other elements
 fillColorRule | `String` | `'&&& path, &&& use, &&& g'` | rule for selecting elements to colorize
 size | `String` / `null` / `Object` | `null` | one of the sizes keys, to set the size, or an object `{ width, height }`
-sizes | `Object` | `{}` | rule for selecting elements to colorize
+sizes | `Object` | `{}` | Override  possible sizes (by default these are generated with the --size option) example below
 
-### Overriding styles and changing colors
-As the components are just regular styled-components, overriding styles is easy
+#### sizes prop example
+```js
+const sizes = {
+  small: { width: 18, height: 18 },
+  medium: { width: 24, height: 24 },
+  large: { width: 36, height: 36 }
+}
+```
+
+### Overriding styles
+As the components are just regular styled-components, overriding styles is easy. Note if you just want to change colors for hover and other state-changes, you can use the `fillColor` prop of the generated components.
 ```js
 import React from 'react'
 import styled from 'styled-components'
