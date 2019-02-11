@@ -83,7 +83,7 @@ const convertFile = async (filePath, templates, options) => {
         .replace('\'##SIZES##\'', sizes),
       options
     ),
-    !options.skipTests ? writeOut(
+    !options.noTests ? writeOut(
       join(outputTestDir, testFilename),
       templates.test
         .replace('##FILENAME##', `${importRelativePath}/${componentFilename}`)

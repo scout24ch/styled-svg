@@ -29,8 +29,8 @@ const optionsDefinitions = [
     type: Boolean
   },
   {
-    name: 'skip-tests',
-    description: 'Skip test file generation',
+    name: 'no-tests',
+    description: 'Prevents test file generation',
     type: Boolean
   },
   {
