@@ -15,14 +15,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - templates/enzyme.js because of a styled-compnent bug [styled-components/styled-components#1985](https://github.com/styled-components/styled-components/issues/1985)
 
 ### Collaborators involved
-- @apedyashev
+- [apedyashev](https://github.com/apedyashev)
 ¨
 ## [2.1.3] - 2018-09-17
 ### Changed
 - fixed lint warning (unused concats)
 
 ### Collaborators involved
-- @sabo3000
+- [sabo3000](https://github.com/sabo3000)
 
 ## [2.1.1, 2.1.2] - 2018-09-17
 ### Changed
