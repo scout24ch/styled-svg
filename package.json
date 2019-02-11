@@ -43,13 +43,6 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "enzyme-to-json": "^3.3.5",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-config-standard-jsx": "^6.0.2",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.1.0",
     "jest-cli": "^24.1.0",
     "jest-enzyme": "^7.0.1",
@@ -58,7 +51,7 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-test-renderer": "^16.5.1",
-    "standard": "^12.0.1",
+    "standard": "^10.0.3",
     "styled-components": "^4.1.3"
   },
   "engines": {
@@ -72,7 +65,9 @@
     "setupFiles": [
       "<rootDir>/jest/polyfills.js"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/jest/setupTests.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/setupTests.js"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
       "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
