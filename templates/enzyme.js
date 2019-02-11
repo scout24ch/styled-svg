@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import Image from '##FILENAME##'
 
@@ -10,7 +10,9 @@ describe('##NAME##.svg generated styled component', () => {
   })
 
   it('renders a <svg> tag without crashing', () => {
-    expect(wrapper).toHaveTagName('svg')
+    // expect(wrapper).toHaveTagName('svg')
+    // TODO: until this issue is resolved we have to use mount and find() https://github.com/styled-components/styled-components/issues/1985
+    expect(mount(<Image />).find('svg').length).toBe(1)
   })
 
   it('renders correctly according to snapshot', () => {

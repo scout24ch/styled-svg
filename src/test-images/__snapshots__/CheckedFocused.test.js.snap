@@ -1,13 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckedFocused.svg generated styled component renders correctly according to snapshot 1`] = `
-.c0 {
-  width: 14px;
-  height: 14px;
-}
-
-<svg
-  className="c0"
+<StyledComponent
+  fillColor={null}
+  fillColorRule="&&& path, &&& use, &&& g"
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "cmJHNW",
+        "rules": Array [
+          [Function],
+        ],
+      },
+      "defaultProps": Object {
+        "children": <React.Fragment>
+          <defs>
+            <circle
+              cx="7"
+              cy="7"
+              id="s-c19cde862f-a"
+              r="7"
+            />
+          </defs>
+          <g
+            fill="none"
+            fillRule="evenodd"
+          >
+            <use
+              fill="#FFF"
+              xlinkHref="#s-c19cde862f-a"
+            />
+            <circle
+              cx="7"
+              cy="7"
+              r="6.5"
+              stroke="#FF7500"
+            />
+            <circle
+              cx="7"
+              cy="7"
+              r="7.5"
+              stroke="#FFF"
+            />
+            <circle
+              cx="7"
+              cy="7"
+              fill="#FF7500"
+              r="3"
+            />
+          </g>
+        </React.Fragment>,
+        "fillColor": null,
+        "fillColorRule": "&&& path, &&& use, &&& g",
+        "size": null,
+        "sizes": Object {
+          "large": Object {
+            "height": 36,
+            "width": 36,
+          },
+          "medium": Object {
+            "height": 24,
+            "width": 24,
+          },
+          "small": Object {
+            "height": 18,
+            "width": 18,
+          },
+        },
+        "viewBox": "0 0 14 14",
+      },
+      "displayName": "CheckedFocused",
+      "foldedComponentIds": Array [],
+      "getCss": [Function],
+      "getDimensions": [Function],
+      "propTypes": Object {
+        "children": [Function],
+        "fillColor": [Function],
+        "fillColorRule": [Function],
+        "size": [Function],
+        "sizes": [Function],
+        "viewBox": [Function],
+      },
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "svg",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
   size={null}
   sizes={
     Object {
@@ -65,5 +151,5 @@ exports[`CheckedFocused.svg generated styled component renders correctly accordi
       r="3"
     />
   </g>
-</svg>
+</StyledComponent>
 `;
