@@ -10,7 +10,7 @@ const serializeSizes = options => {
     })
   }
   if (!sizes.length) { return '{}' }
-  return `{${sizes.map(({name, width, height}) =>
+  return `{${sizes.map(({ name, width, height }) =>
     `\n  ${name}: { width: ${width}, height: ${height} }`
   )}\n}`
 }
