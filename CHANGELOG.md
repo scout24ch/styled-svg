@@ -58,10 +58,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.4.0] - 2018-05-01
 ### Added
-- Added CLI options - thx [stramel](https://github.com/stramel)
+- Added CLI options
+
 ### Fixed
-- Trim style attribute before parsing - thx [stramel](https://github.com/stramel)
-- Allow negative values in viewBox - thx [stramel](https://github.com/stramel)
+- Trim style attribute before parsing
+- Allow negative values in viewBox
+
+### Collaborators involved
+- [stramel](https://github.com/stramel)
 
 ## [1.3.2] - 2017-10-18
 ### Added
@@ -89,6 +93,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.2.0] - 2017-09-15
 ### Fixed
 - Consecutive child tags broke the output
+
 ### Changed
 - Moved from mocha to jest for testing
 
