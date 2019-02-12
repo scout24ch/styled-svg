@@ -6,8 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.2.0] - 2019-02-11
+## [2.3.0] - 2019-02-12
+### Added
+- Add flag to skip test file generation `--no-tests`, fixes #10
 
+### Collaborators involved
+- [stramel](https://github.com/stramel)
+
+## [2.2.0] - 2019-02-11
 ### Updated
 - Styled-components to v4.x
 
