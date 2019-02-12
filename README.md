@@ -89,12 +89,28 @@ npm i --save-dev styled-svg
 JS example
 ```js
 const convert = require('styled-svg')
+
+// options have the same defaults as the command line usage
+const options = {
+  clean: true,
+  dryRun: false
+  noTests: false,
+  outputDir: './output',
+  templatesDir: : './templates',
+  testDir: './output',
+  size: [
+    'small:18x18',
+    'medium:24x24'
+  ]
+}
 const files = [
   'path/to/file/a.svg',
   'path/to/file/b.svg',
   'path/to/file/c.svg'
 ]
-convert(files)
+
+// returns a promise that resolves to an array of results
+convert(files, options)
 ```
 
 ### Command line usage
