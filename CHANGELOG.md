@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.1] - 2019-02-12
+### Fixed
+- The `sizes` attribute does no longer render `[Object object]` in the generated markup
+
+### Added
+- Peer dependency `styled-components` in `package.json`
+
 ## [2.3.0] - 2019-02-12
 ### Added
 - Add flag to skip test file generation `--no-tests`, fixes #10
