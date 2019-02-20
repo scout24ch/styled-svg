@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.3] - 2019-02-20
+### Changed
+
+### Added
+- use [react-test-reanderer](https://reactjs.org/docs/test-renderer.html) instead of enzyme
+
+### Collaborators involved
+- [sabo3000](https://github.com/sabo3000)
+
 ## [2.3.1 & 2.3.2] - 2019-02-12
 ### Fixed
 - The `sizes` attribute does no longer render `[Object object]` in the generated markup
