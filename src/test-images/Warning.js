@@ -12,9 +12,9 @@ const sizes = {
   large: { width: 36, height: 36 }
 }
 
-// somehow sizes is ending up in markup, until we have a better solution
-// just render it empty, instead to '[Object object]'
-Object.defineProperty(sizes, 'toString', { value: () => void 0, enumerable: false })
+// somehow sizes is ending up in markup, even if it is not a valid svg attribute
+// until we have a better solution, just render it empty, instead to '[Object object]'
+Object.defineProperty(sizes, 'toString', { value: () => '', enumerable: false })
 
 const getDimensions = (size, sizes) => {
   if (size && typeof size.width === 'number' && typeof size.height === 'number') {

@@ -104,7 +104,7 @@ module.exports = async (files, options) => {
   const templatesDir = options.templatesDir || join(__dirname, '..', 'templates')
   const templates = {
     component: await fs.readFile(join(templatesDir, 'component.js'), 'utf8'),
-    test: await fs.readFile(join(templatesDir, 'enzyme.js'), 'utf8')
+    test: await fs.readFile(join(templatesDir, 'test.js'), 'utf8')
   }
 
   // clean output directories
