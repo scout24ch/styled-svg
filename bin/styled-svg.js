@@ -29,6 +29,11 @@ const optionsDefinitions = [
     type: Boolean
   },
   {
+    name: 'no-tests',
+    description: 'Prevents test file generation',
+    type: Boolean
+  },
+  {
     name: 'output-dir',
     description: 'The directory to output components to. This defaults to the directory of the svg.',
     type: String
@@ -72,18 +77,18 @@ if (options.help || options._unknown) {
   ])
   console.log(usage)
 } else {
-  // shim friendly options
-  options.outputDir = options['output-dir']
-  options.testDir = options['test-dir']
-  options.templatesDir = options['templates-dir']
-  options.dryRun = options['dry-run']
+  // shim dashcase options to camelCase
+  const normalizedOptions = Object.entries(options).reduce((opts, [key, value]) => {
+    opts[key.replace(/-([a-z])/gi, g => g[1].toUpperCase())] = value
+    return opts
+  }, {})
 
   // execute on sources
   const globby = require('globby')
   const convert = require('..')
 
-  globby(options.input)
-    .then(files => convert(files, options))
+  globby(normalizedOptions.input)
+    .then(files => convert(files, normalizedOptions))
     .catch(err => {
       console.log(err.stack)
       process.exit(1)

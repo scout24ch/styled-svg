@@ -8,6 +8,10 @@ const viewBox = '##VIEWBOX##'
 
 const sizes = '##SIZES##'
 
+// somehow sizes is ending up in markup, even if it is not a valid svg attribute
+// until we have a better solution, just render it empty, instead to '[Object object]'
+Object.defineProperty(sizes, 'toString', { value: () => '', enumerable: false })
+
 const getDimensions = (size, sizes) => {
   if (size && typeof size.width === 'number' && typeof size.height === 'number') {
     return size

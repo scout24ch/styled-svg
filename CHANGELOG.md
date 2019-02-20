@@ -6,6 +6,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.1 & 2.3.2] - 2019-02-12
+### Fixed
+- The `sizes` attribute does no longer render `[Object object]` in the generated markup
+
+### Added
+- Peer dependency `styled-components` in `package.json`
+
+## [2.3.0] - 2019-02-12
+### Added
+- Add flag to skip test file generation `--no-tests`, fixes #10
+
+### Collaborators involved
+- [stramel](https://github.com/stramel)
+
+## [2.2.0] - 2019-02-11
+### Updated
+- Styled-components to v4.x
+
+### Changed
+- templates/enzyme.js because of a styled-compnent bug [styled-components/styled-components#1985](https://github.com/styled-components/styled-components/issues/1985)
+
+### Collaborators involved
+- [apedyashev](https://github.com/apedyashev)
+
+## [2.1.3] - 2018-09-17
+### Changed
+- fixed lint warning (unused concats)
+
+### Collaborators involved
+- [sabo3000](https://github.com/sabo3000)
+
 ## [2.1.1, 2.1.2] - 2018-09-17
 ### Changed
 - lint and audit fix
@@ -40,10 +71,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.4.0] - 2018-05-01
 ### Added
-- Added CLI options - thx [stramel](https://github.com/stramel)
+- Added CLI options
+
 ### Fixed
-- Trim style attribute before parsing - thx [stramel](https://github.com/stramel)
-- Allow negative values in viewBox - thx [stramel](https://github.com/stramel)
+- Trim style attribute before parsing
+- Allow negative values in viewBox
+
+### Collaborators involved
+- [stramel](https://github.com/stramel)
 
 ## [1.3.2] - 2017-10-18
 ### Added
@@ -71,6 +106,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.2.0] - 2017-09-15
 ### Fixed
 - Consecutive child tags broke the output
+
 ### Changed
 - Moved from mocha to jest for testing
 
