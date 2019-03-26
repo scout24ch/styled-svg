@@ -1,6 +1,6 @@
 {
   "name": "styled-svg",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Generates styled-components and tests from *.svg files",
   "main": "src/index.js",
   "bin": {
