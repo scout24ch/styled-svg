@@ -69,17 +69,10 @@ const propTypes = {
       width: PropTypes.number.isRequired
     })
   ]),
-  sizes: (props, name, componentName) => {
-    const prop = props[name]
-    if (typeof prop !== 'object') { return }
-    for (let key in prop) {
-      if (!prop[key] || typeof prop[key].width !== 'number' || typeof prop[key].height !== 'number') {
-        return new Error(
-          'Invalid prop `' + name + '` supplied to `' + componentName + '`. Validation failed.'
-        )
-      }
-    }
-  }
+  sizes: PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number
+  })
 }
 
 export default Object.assign(Image, {

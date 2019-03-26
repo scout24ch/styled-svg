@@ -87,7 +87,7 @@ const convertFile = async (filePath, templates, options) => {
       join(outputTestDir, testFilename),
       templates.test
         .replace('##FILENAME##', `${importRelativePath}/${componentFilename}`)
-        .replace('##NAME##', displayName),
+        .replace(/##NAME##/g, displayName),
       options
     ) : Promise.resolve()
   ])
