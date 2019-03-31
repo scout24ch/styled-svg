@@ -34,7 +34,7 @@
     "del": "^3.0.0",
     "fs-extra": "^7.0.1",
     "globby": "^9.0.0",
-    "svgo": "0.7.2",
+    "svgo": "1.1.0",
     "whatwg-fetch": "2.0.4"
   },
   "devDependencies": {
