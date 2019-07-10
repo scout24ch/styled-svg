@@ -1,58 +1,27 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import { createHelpers, sanitizeSizes } from 'styled-svg'
 
 const width = '116'
 const height = '56'
 const viewBox = '0 0 116 56'
 
-const sizes = {
+const sizes = sanitizeSizes({
   small: { width: 18, height: 18 },
   medium: { width: 24, height: 24 },
   large: { width: 36, height: 36 }
-}
+})
 
-// somehow sizes is ending up in markup, even if it is not a valid svg attribute
-// until we have a better solution, just render it empty, instead to '[Object object]'
-Object.defineProperty(sizes, 'toString', { value: () => '', enumerable: false })
+const { getDimensions, getCss, propsToCss } = createHelpers(width, height)
 
-const getDimensions = (size, sizes) => {
-  if (size && typeof size.width === 'number' && typeof size.height === 'number') {
-    return size
-  }
-  return size && sizes[size]
-    ? sizes[size]
-    : { width, height }
-}
-
-const getCss = (size, sizes, fillColor, fillColorRule, noStyles) => {
-  if (noStyles) { return '' }
-  const dimensions = getDimensions(size, sizes)
-  const fillRule = fillColor && fillColorRule ? `${fillColorRule}{ fill: ${fillColor}; }` : ''
-  return css`
-    width: ${dimensions.width}px;
-    height: ${dimensions.height}px;
-    ${fillRule}
-  `
-}
-
-const propsToCss = ({
-  size,
-  sizes,
-  fillColor,
-  fillColorRule,
-  noStyles
-}) => getCss(size, sizes, fillColor, fillColorRule, noStyles)
-
-const Image = styled.svg`${propsToCss}`
+const Image = styled.svg`
+  ${propsToCss}
+`
 
 const children = (
   <Fragment>
-    <path
-      fill='#003468'
-      d='M0 0v27h116V0H0z'
-      key='key-0'
-    />
+    <path fill='#003468' d='M0 0v27h116V0H0z' key='key-0' />
     <path
       fill='#FF7500'
       d='M0 56h102.33c7.605 0 13.67-6.225 13.67-13.521V29H0v27z'

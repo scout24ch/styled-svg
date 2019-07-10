@@ -85,7 +85,7 @@ if (options.help || options._unknown) {
 
   // execute on sources
   const globby = require('globby')
-  const convert = require('..')
+  const convert = require('../src/index')
 
   globby(normalizedOptions.input)
     .then(files => convert(files, normalizedOptions))

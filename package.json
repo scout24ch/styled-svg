@@ -2,7 +2,9 @@
   "name": "styled-svg",
   "version": "2.3.4",
   "description": "Generates styled-components and tests from *.svg files",
-  "main": "src/index.js",
+  "main": "src/helpers.js",
+  "module": "src/helpers.js",
+  "sideEffects": false,
   "bin": {
     "styled-svg": "./bin/styled-svg.js"
   },
@@ -34,6 +36,7 @@
     "del": "^3.0.0",
     "fs-extra": "^7.0.1",
     "globby": "^9.0.0",
+    "prettier": "^1.18.2",
     "svgo": "1.1.0",
     "whatwg-fetch": "2.0.4"
   },
