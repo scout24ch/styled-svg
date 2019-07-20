@@ -125,7 +125,7 @@ styled-svg **/*.svg
 ```
 
 ## Changelog
-[CHANGELOG](CHANGELOG.md)
+All changes are logged in [releases](https://github.com/Scout24-CH/styled-svg/releases).
 
 
 ## Known issues / unimplemented features
