@@ -49,6 +49,6 @@ describe('CheckedFocused.svg generated styled component', () => {
   it('returns styles with getCss method', () => {
     const fillColor = '#ff0000'
     const fillRule = '&&& path, &&& use, &&& g'
-    expect(Image.getCss('medium', sizes, fillColor, fillRule)).toEqual([ '\n      width: ', String(sizes.medium.width), 'px;\n      height: ', String(sizes.medium.height), 'px;\n      ', `${fillRule}{ fill: ${fillColor}; }`, '\n    ' ])
+    expect(Image.getCss('medium', sizes, fillColor, fillRule)).toEqual(['\n      width: ', String(sizes.medium.width), 'px;\n      height: ', String(sizes.medium.height), 'px;\n      ', `${fillRule}{ fill: ${fillColor}; }`, '\n    '])
   })
 })
