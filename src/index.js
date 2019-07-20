@@ -1,3 +1,4 @@
+const prettier = require('prettier')
 const fs = require('fs-extra')
 const path = require('path')
 
@@ -65,22 +66,27 @@ const convertFile = async (filePath, templates, options) => {
   const content = await optimize(origContent)
 
   // react formatted SVG
-  const formattedContent = indent(content.trim())
+  const formattedContent = indent(content.data)
 
   // handle size alias options
   const sizes = serializeSizes(options)
+
+  const prettierConfig = await prettier.resolveConfig(filePath)
 
   // output component and test file
   await Promise.all([
     writeOut(
       join(outputDir, componentFilename),
-      templates.component
-        .replace('##SVG##', formattedContent)
-        .replace('##WIDTH##', viewBox[2])
-        .replace('##HEIGHT##', viewBox[3])
-        .replace('##VIEWBOX##', viewBox.join(' '))
-        .replace('##NAME##', displayName)
-        .replace('\'##SIZES##\'', sizes),
+      prettier.format(
+        templates.component
+          .replace('##SVG##', formattedContent)
+          .replace('##WIDTH##', viewBox[2])
+          .replace('##HEIGHT##', viewBox[3])
+          .replace('##VIEWBOX##', viewBox.join(' '))
+          .replace('##NAME##', displayName)
+          .replace('\'##SIZES##\'', sizes),
+        prettierConfig
+      ),
       options
     ),
     !options.noTests ? writeOut(
@@ -123,5 +129,5 @@ module.exports = async (files, options) => {
   }
 
   // convert files
-  Promise.all(files.map(file => convertFile(file, templates, options)))
+  return Promise.all(files.map(file => convertFile(file, templates, options)))
 }

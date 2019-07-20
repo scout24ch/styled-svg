@@ -30,8 +30,7 @@ module.exports = content => {
       { sortAttrs: true }
     ]
   }
-  return new Promise(resolve => {
-    const svgo = new SVGO(svgoOptions)
-    svgo.optimize(content, res => resolve(res.data))
-  })
+
+  const svgo = new SVGO(svgoOptions)
+  return svgo.optimize(content, {})
 }
