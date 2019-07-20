@@ -2,9 +2,9 @@ const serializeSizes = options => {
   const sizes = []
   if (options.size) {
     options.size.forEach(size => {
-      const [ name, dimesions ] = size.split(':').map(part => part.trim())
+      const [name, dimesions] = size.split(':').map(part => part.trim())
       if (!name || !dimesions) { return }
-      const [ width, height ] = dimesions.split('x').map(Number)
+      const [width, height] = dimesions.split('x').map(Number)
       if (isNaN(width) || isNaN(height)) { return }
       sizes.push({ name, width, height })
     })
