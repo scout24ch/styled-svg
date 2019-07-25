@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components' // eslint-disable-line no-unused-vars
+import styled, { css } from 'styled-components'
 
-const createHelpers = (width, height) => {
+const createHelpers = (width, height, css) => {
   // somehow sizes is ending up in markup, even if it is not a valid svg attribute
   // until we have a better solution, just render it empty, instead to '[Object object]'
   const sanitizeSizes = sizes =>
@@ -58,7 +58,8 @@ const viewBox = '0 0 116 56'
 
 const { getDimensions, getCss, propsToCss, sanitizeSizes } = createHelpers(
   width,
-  height
+  height,
+  css
 )
 
 const sizes = sanitizeSizes({
