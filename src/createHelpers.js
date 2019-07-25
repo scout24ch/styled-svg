@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+const { css } = require('styled-components')
 
 const createHelpers = (width, height) => {
   // somehow sizes is ending up in markup, even if it is not a valid svg attribute
@@ -50,4 +50,4 @@ const createHelpers = (width, height) => {
   }
 }
 
-export default createHelpers
+module.exports = createHelpers

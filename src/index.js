@@ -5,7 +5,10 @@ const path = require('path')
 const indent = require('./indent')
 const optimize = require('./optimize')
 const serializeSizes = require('./serializeSizes')
+const createHelpers = require('./createHelpers')
 const { pascalCase } = require('./stringOperations')
+
+console.log(createHelpers, createHelpers.toString())
 
 const writeOut = async (filePath, content, options) => {
   if (options.dryRun) {
@@ -84,7 +87,8 @@ const convertFile = async (filePath, templates, options) => {
           .replace('##HEIGHT##', viewBox[3])
           .replace('##VIEWBOX##', viewBox.join(' '))
           .replace('##NAME##', displayName)
-          .replace('\'##SIZES##\'', sizes),
+          .replace('\'##SIZES##\'', sizes)
+          .replace('\'##CREATEHELPERS##\'', createHelpers.toString()),
         prettierConfig
       ),
       options
