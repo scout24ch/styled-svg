@@ -1,19 +1,71 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { createHelpers, sanitizeSizes } from 'styled-svg'
+import styled, { css } from 'styled-components' // eslint-disable-line no-unused-vars
+
+const createHelpers = (width, height) => {
+  // somehow sizes is ending up in markup, even if it is not a valid svg attribute
+  // until we have a better solution, just render it empty, instead to '[Object object]'
+  const sanitizeSizes = sizes =>
+    Object.defineProperty(sizes, 'toString', {
+      value: () => '',
+      enumerable: false
+    })
+
+  const getDimensions = (size, sizes) => {
+    if (
+      size &&
+      typeof size.width === 'number' &&
+      typeof size.height === 'number'
+    ) {
+      return size
+    }
+
+    return size && sizes[size] ? sizes[size] : { width, height }
+  }
+
+  const getCss = (size, sizes, fillColor, fillColorRule, noStyles) => {
+    if (noStyles) {
+      return ''
+    }
+
+    const dimensions = getDimensions(size, sizes)
+    const fillRule =
+      fillColor && fillColorRule
+        ? `${fillColorRule}{ fill: ${fillColor}; }`
+        : ''
+
+    return css`
+      width: ${dimensions.width}px;
+      height: ${dimensions.height}px;
+      ${fillRule}
+    `
+  }
+
+  const propsToCss = ({ size, sizes, fillColor, fillColorRule, noStyles }) =>
+    getCss(size, sizes, fillColor, fillColorRule, noStyles)
+
+  return {
+    getCss,
+    getDimensions,
+    propsToCss,
+    sanitizeSizes
+  }
+}
 
 const width = '116'
 const height = '56'
 const viewBox = '0 0 116 56'
+
+const { getDimensions, getCss, propsToCss, sanitizeSizes } = createHelpers(
+  width,
+  height
+)
 
 const sizes = sanitizeSizes({
   small: { width: 18, height: 18 },
   medium: { width: 24, height: 24 },
   large: { width: 36, height: 36 }
 })
-
-const { getDimensions, getCss, propsToCss } = createHelpers(width, height)
 
 const Image = styled.svg`
   ${propsToCss}

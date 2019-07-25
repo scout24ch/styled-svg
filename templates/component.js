@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { createHelpers, sanitizeSizes } from 'styled-svg'
+import styled, { css } from 'styled-components' // eslint-disable-line no-unused-vars
+
+const createHelpers = '##CREATEHELPERS##'
 
 const width = '##WIDTH##'
 const height = '##HEIGHT##'
 const viewBox = '##VIEWBOX##'
 
-const sizes = sanitizeSizes('##SIZES##')
+const { getDimensions, getCss, propsToCss, sanitizeSizes } = createHelpers(width, height)
 
-const { getDimensions, getCss, propsToCss } = createHelpers(width, height)
+const sizes = sanitizeSizes('##SIZES##')
 
 const Image = styled.svg`${propsToCss}`
 
