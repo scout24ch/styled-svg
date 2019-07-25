@@ -8,8 +8,6 @@ const serializeSizes = require('./serializeSizes')
 const createHelpers = require('./createHelpers')
 const { pascalCase } = require('./stringOperations')
 
-console.log(createHelpers, createHelpers.toString())
-
 const writeOut = async (filePath, content, options) => {
   if (options.dryRun) {
     console.log('\n')
