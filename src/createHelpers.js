@@ -1,6 +1,4 @@
-const { css } = require('styled-components')
-
-const createHelpers = (width, height) => {
+const createHelpers = (width, height, css) => {
   // somehow sizes is ending up in markup, even if it is not a valid svg attribute
   // until we have a better solution, just render it empty, instead to '[Object object]'
   const sanitizeSizes = sizes =>

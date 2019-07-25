@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components' // eslint-disable-line no-unused-vars
+import styled, { css } from 'styled-components'
 
 const createHelpers = '##CREATEHELPERS##'
 
@@ -8,7 +8,7 @@ const width = '##WIDTH##'
 const height = '##HEIGHT##'
 const viewBox = '##VIEWBOX##'
 
-const { getDimensions, getCss, propsToCss, sanitizeSizes } = createHelpers(width, height)
+const { getDimensions, getCss, propsToCss, sanitizeSizes } = createHelpers(width, height, css)
 
 const sizes = sanitizeSizes('##SIZES##')
 
