@@ -1,6 +1,6 @@
 {
   "name": "styled-svg",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Generates styled-components and tests from *.svg files",
   "main": "src/createHelpers.js",
   "module": "src/createHelpers.js",
