@@ -2,8 +2,8 @@
   "name": "styled-svg",
   "version": "2.4.1",
   "description": "Generates styled-components and tests from *.svg files",
-  "main": "src/helpers.js",
-  "module": "src/helpers.js",
+  "main": "src/createHelpers.js",
+  "module": "src/createHelpers.js",
   "sideEffects": false,
   "bin": {
     "styled-svg": "./bin/styled-svg.js"

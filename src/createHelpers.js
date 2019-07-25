@@ -1,14 +1,14 @@
 import { css } from 'styled-components'
 
-// somehow sizes is ending up in markup, even if it is not a valid svg attribute
-// until we have a better solution, just render it empty, instead to '[Object object]'
-export const sanitizeSizes = sizes =>
-  Object.defineProperty(sizes, 'toString', {
-    value: () => '',
-    enumerable: false
-  })
+const createHelpers = (width, height) => {
+  // somehow sizes is ending up in markup, even if it is not a valid svg attribute
+  // until we have a better solution, just render it empty, instead to '[Object object]'
+  const sanitizeSizes = sizes =>
+    Object.defineProperty(sizes, 'toString', {
+      value: () => '',
+      enumerable: false
+    })
 
-export function createHelpers (width, height) {
   const getDimensions = (size, sizes) => {
     if (
       size &&
@@ -42,5 +42,12 @@ export function createHelpers (width, height) {
   const propsToCss = ({ size, sizes, fillColor, fillColorRule, noStyles }) =>
     getCss(size, sizes, fillColor, fillColorRule, noStyles)
 
-  return { getDimensions, getCss, propsToCss }
+  return {
+    getCss,
+    getDimensions,
+    propsToCss,
+    sanitizeSizes
+  }
 }
+
+export default createHelpers
