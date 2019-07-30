@@ -1,7 +1,7 @@
 # styled-svg
 Generate [styled-components 💅](https://www.styled-components.com/) from SVG files  
   
-[![Build Status](https://travis-ci.org/Scout24-CH/styled-svg.svg?branch=master)](https://travis-ci.org/Scout24-CH/styled-svg)
+[![Build Status](https://travis-ci.com/Scout24-CH/styled-svg.svg?branch=master)](https://travis-ci.com/Scout24-CH/styled-svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/scout24-ch/styled-svg/badge.svg)](https://snyk.io/test/github/scout24-ch/styled-svg)
 
 ## What's this?
