@@ -29,7 +29,7 @@ const defaultProps = {
   size: null
 }
 
-Image.propTypes = {
+Image.propTypes /* remove-proptypes */ = {
   fillColor: PropTypes.string,
   fillColorRule: PropTypes.string,
   viewBox: PropTypes.string.isRequired,
