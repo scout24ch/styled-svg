@@ -95,7 +95,7 @@ const defaultProps = {
   size: null
 }
 
-const propTypes = {
+Image.propTypes /* remove-proptypes */ = {
   fillColor: PropTypes.string,
   fillColorRule: PropTypes.string,
   viewBox: PropTypes.string.isRequired,
@@ -117,6 +117,5 @@ export default Object.assign(Image, {
   getDimensions,
   getCss,
   defaultProps,
-  propTypes,
   displayName: 'CheckedFocused'
 })
