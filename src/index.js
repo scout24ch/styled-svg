@@ -30,8 +30,8 @@ const convertFile = async (filePath, templates, options) => {
 
   // determine names
   const displayName = pascalCase(path.basename(filePath).replace(endsWithSvg, ''))
-  const componentFilename = displayName + '.js'
-  const testFilename = displayName + '.test.js'
+  const componentFilename = `${displayName}.js`
+  const testFilename = `${displayName }.test.js`
 
   // resolve paths
   const testDir = options.testDir || './'
@@ -66,9 +66,6 @@ const convertFile = async (filePath, templates, options) => {
   // run SVG optimizers
   const content = await optimize(origContent)
 
-  // react formatted SVG
-  const formattedContent = indent(content.data)
-
   // handle size alias options
   const sizes = serializeSizes(options)
 
@@ -80,7 +77,7 @@ const convertFile = async (filePath, templates, options) => {
       join(outputDir, componentFilename),
       prettier.format(
         templates.component
-          .replace('##SVG##', formattedContent)
+          .replace('##SVG##', content.data)
           .replace('##WIDTH##', viewBox[2])
           .replace('##HEIGHT##', viewBox[3])
           .replace('##VIEWBOX##', viewBox.join(' '))
