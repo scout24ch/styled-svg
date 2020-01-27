@@ -29,15 +29,18 @@ const convertFile = async (filePath, templates, options) => {
   let viewBox = [0, 0, 0, 0]
 
   // determine names
-  const displayName = pascalCase(path.basename(filePath).replace(endsWithSvg, ''))
+  const displayName = pascalCase(
+    path.basename(filePath).replace(endsWithSvg, '')
+  )
   const componentFilename = `${displayName}.js`
-  const testFilename = `${displayName }.test.js`
+  const testFilename = `${displayName}.test.js`
 
   // resolve paths
   const testDir = options.testDir || './'
   const outputDir = options.outputDir || path.dirname(filePath)
   const outputTestDir = join(outputDir, testDir)
-  const importRelativePath = path.relative(outputTestDir, outputDir).replace(path.sep, '/') || '.'
+  const importRelativePath =
+    path.relative(outputTestDir, outputDir).replace(path.sep, '/') || '.'
 
   // load file content
   const origContent = await fs.readFile(filePath, 'utf8')
@@ -66,6 +69,8 @@ const convertFile = async (filePath, templates, options) => {
   // run SVG optimizers
   const content = await optimize(origContent)
 
+  const formattedContent = indent(content.data)
+
   // handle size alias options
   const sizes = serializeSizes(options)
 
@@ -77,27 +82,33 @@ const convertFile = async (filePath, templates, options) => {
       join(outputDir, componentFilename),
       prettier.format(
         templates.component
-          .replace('##SVG##', content.data)
+          .replace('##SVG##', formattedContent)
           .replace('##WIDTH##', viewBox[2])
           .replace('##HEIGHT##', viewBox[3])
           .replace('##VIEWBOX##', viewBox.join(' '))
           .replace('##NAME##', displayName)
-          .replace('\'##SIZES##\'', sizes)
-          .replace('\'##CREATEHELPERS##\'', createHelpers.toString()),
+          .replace("'##SIZES##'", sizes)
+          .replace("'##CREATEHELPERS##'", createHelpers.toString()),
         prettierConfig
       ),
       options
     ),
-    !options.noTests ? writeOut(
-      join(outputTestDir, testFilename),
-      templates.test
-        .replace('##FILENAME##', `${importRelativePath}/${componentFilename}`)
-        .replace(/##NAME##/g, displayName),
-      options
-    ) : Promise.resolve()
+    !options.noTests
+      ? writeOut(
+        join(outputTestDir, testFilename),
+        templates.test
+          .replace(
+            '##FILENAME##',
+            `${importRelativePath}/${componentFilename}`
+          )
+          .replace(/##NAME##/g, displayName),
+        options
+      )
+      : Promise.resolve()
   ])
 
-  console.log('Converted',
+  console.log(
+    'Converted',
     filePath.replace(process.cwd(), '.'),
     ' => ',
     path.join(outputDir.replace(process.cwd(), '.'), displayName)
@@ -106,7 +117,8 @@ const convertFile = async (filePath, templates, options) => {
 
 module.exports = async (files, options) => {
   // load templates
-  const templatesDir = options.templatesDir || join(__dirname, '..', 'templates')
+  const templatesDir =
+    options.templatesDir || join(__dirname, '..', 'templates')
   const templates = {
     component: await fs.readFile(join(templatesDir, 'component.js'), 'utf8'),
     test: await fs.readFile(join(templatesDir, 'test.js'), 'utf8')
@@ -116,14 +128,10 @@ module.exports = async (files, options) => {
   if (options.clean) {
     const del = require('del')
     if (options.outputDir) {
-      await del([
-        join(options.outputDir, '*.js')
-      ])
+      await del([join(options.outputDir, '*.js')])
     }
     if (options.testDir) {
-      await del([
-        join(options.testDir, '*.test.js')
-      ])
+      await del([join(options.testDir, '*.test.js')])
     }
   }
 
